@@ -2515,6 +2515,19 @@ body.mobile-layout .m-tb-ico svg { width: 20px; height: 20px; }
 body.mobile-layout .m-tb-title { font-size: 17px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 body.mobile-layout .m-tb-pos { font-size: 11px; font-weight: 600; color: var(--text-3); background: var(--surface2); border-radius: 8px; padding: 2px 6px; }
 
+/* Productos: buscador + botón "+" arriba; los demás botones en una fila deslizable */
+body.mobile-layout .productos-header-row1 { display: flex !important; flex-wrap: wrap !important; gap: 8px !important; overflow: visible !important; }
+body.mobile-layout .m-prod-row { flex: 1 1 100%; }
+body.mobile-layout .m-prod-row .search-wrap { max-width: none !important; }
+body.mobile-layout #prod-search { padding-top: 12px; padding-bottom: 12px; border-radius: 14px; }
+#m-new-prod {
+  flex-shrink: 0; width: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  background: var(--accent); color: #fff; border: 0; box-shadow: 0 4px 12px rgba(28,110,243,.3); touch-action: manipulation;
+}
+#m-new-prod:active { transform: scale(.94); }
+body.mobile-layout .productos-header-row1 > .btn-primary[onclick^="openProductModal"] { display: none !important; }
+body.mobile-layout .productos-header-row1 > .btn, body.mobile-layout .productos-header-row1 > .count-badge { flex: 0 0 auto; }
+
 /* ═══ Botón de teclado ═══ */
 #m-kb-btn {
   position: fixed; right: 12px; bottom: calc(var(--m-nav-h) + var(--m-safe-b) + 12px); z-index: 100001;
@@ -15129,6 +15142,23 @@ self.addEventListener('fetch', e => {
   }
   window._movilMakeInline = makeInline;
 
+  // Productos: botón "+" siempre visible junto al buscador
+  function makeNuevoProducto() {
+    const inp = document.getElementById('prod-search');
+    const sw = inp && inp.closest('.search-wrap');
+    if (!sw || document.getElementById('m-new-prod')) return;
+    const row = document.createElement('div');
+    row.className = 'm-search-row m-prod-row';
+    sw.parentNode.insertBefore(row, sw);
+    row.appendChild(sw);
+    const add = document.createElement('button');
+    add.id = 'm-new-prod'; add.type = 'button';
+    add.setAttribute('aria-label', 'Nuevo producto');
+    add.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+    add.addEventListener('click', e => { e.preventDefault(); if (typeof openProductModal === 'function') openProductModal(null); });
+    row.appendChild(add);
+  }
+
   // Detecta teclado visible para mover el botón encima de él
   const vv = window.visualViewport;
   // Altura real de la pantalla visible en cada celular (barras del navegador incluidas)
@@ -15178,6 +15208,7 @@ self.addEventListener('fetch', e => {
   function init() {
     stripF(document.body);
     makeInline();
+    makeNuevoProducto();
     crearBarra();
     body.dataset.mview = (typeof state !== 'undefined' && state.currentView) || 'ventas';
 
