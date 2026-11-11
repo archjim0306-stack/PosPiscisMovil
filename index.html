@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="POS Piscis">
+<meta name="apple-mobile-web-app-title" content="Piscis Móvil">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#07000d">
 <meta name="description" content="Punto de Venta Piscis — POS con sincronización offline">
@@ -530,19 +530,7 @@ body.mobile-layout #mobile-layout-btn { bottom: 64px; }
   align-items: center;
   gap: 8px;
   margin-left: auto;
-  flex-wrap: wrap;
-  justify-content: flex-end;
 }
-/* Botones de Ventas: tamaño ajustable en Ajustes */
-#view-ventas .ventas-actions .btn,
-#view-ventas .ventas-footer .btn,
-#view-ventas .pb-footer .btn {
-  font-size: var(--ventas-btn-size, 13px);
-  padding: calc(var(--ventas-btn-size, 13px) * .5) calc(var(--ventas-btn-size, 13px) * .95);
-  border-radius: calc(var(--ventas-btn-size, 13px) * .6);
-}
-#view-ventas .ventas-actions .btn svg { width: 1.1em; height: 1.1em; }
-#view-ventas #btn-cobrar { font-size: calc(var(--ventas-btn-size, 13px) * 1.25); font-weight: 700; }
 
 .total-pill { display: none; } /* legacy — replaced by total-bar */
 
@@ -652,18 +640,6 @@ body.mobile-layout #mobile-layout-btn { bottom: 64px; }
 .td-price { font-family: var(--mono); text-align: right; }
 .td-subtotal { font-family: var(--mono); font-weight: 600; text-align: right; }
 .td-del { text-align: center; }
-.vq-wrap { display: inline-flex; align-items: center; gap: 8px; }
-.vq-num { min-width: 2.2em; text-align: center; }
-.vq-btn {
-  width: calc(var(--ventas-btn-size, 13px) * 2.2); height: calc(var(--ventas-btn-size, 13px) * 2.2);
-  min-width: 30px; min-height: 30px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 8px; border: 1.5px solid var(--border); background: var(--surface2);
-  color: var(--text-2); font-size: calc(var(--ventas-btn-size, 13px) * 1.35); font-weight: 700; line-height: 1;
-  cursor: pointer; user-select: none; font-family: inherit; transition: all var(--transition);
-}
-.vq-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
-.vq-btn:active { transform: scale(.92); }
 .del-btn { background: none; border: none; color: var(--text-3); font-size: 15px; cursor: pointer; padding: 4px 6px; border-radius: 4px; transition: all var(--transition); line-height: 1; }
 .del-btn:hover { background: var(--red-bg); color: var(--red); }
 
@@ -1176,16 +1152,8 @@ select.settings-input {
 #view-maiz.active { display:flex; }
 #view-gold { display:none; flex-direction:column; }
 #view-gold.active { display:flex; }
-#view-presupuestos { display:none; flex-direction:column; height:100%; min-height:0; overflow:hidden; background:var(--bg); padding:0 !important; }
+#view-presupuestos { display:none; flex-direction:column; }
 #view-presupuestos.active { display:flex; }
-#presupuesto-search { width:100%; padding:10px 14px 10px 38px; background:var(--surface2); border:1.5px solid var(--border); border-radius:var(--radius); font-size:var(--font-size-search, 14px); color:var(--text); transition:border-color var(--transition), box-shadow var(--transition); }
-#presupuesto-search:focus { border-color:#7c3aed; box-shadow:0 0 0 3px rgba(124,58,237,.12); background:var(--surface); outline:none; }
-#presupuesto-dropdown { max-height:min(62vh, 560px); }
-.presup-qbtn { width:26px; height:26px; border-radius:6px; border:1.5px solid var(--border); background:var(--surface2); color:var(--text-2); cursor:pointer; font-weight:700; line-height:1; }
-.presup-qbtn:hover { border-color:#7c3aed; color:#7c3aed; }
-.presup-qty { width:58px; text-align:center; font-family:var(--mono); font-weight:600; border:1.5px solid var(--border); border-radius:6px; padding:3px 4px; background:var(--surface); color:var(--text); margin:0 4px; }
-.presup-guardado { display:flex; align-items:center; gap:12px; padding:10px 14px; border:1.5px solid var(--border); border-left:5px solid #7c3aed; border-radius:var(--radius); background:var(--surface); cursor:pointer; }
-.presup-guardado:hover { border-color:#7c3aed; }
 #view-proveedores { display:none; flex-direction:column; }
 #view-proveedores.active { display:flex; }
 .maiz-card { background:var(--surface1); border:1px solid var(--border); border-radius:var(--radius); padding:14px 16px; display:flex; align-items:center; gap:12px; }
@@ -2277,19 +2245,324 @@ body.mobile-layout .sidebar-reload { display: none; }
 .maiz-reg-fecha { font-weight: 800; font-size: 15px; min-width: 190px; display: flex; flex-direction: column; }
 .maiz-reg-fecha small { font-size: 11px; font-weight: 500; color: var(--text-3); }
 .maiz-reg-datos { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13.5px; color: var(--text-2); }
-.maiz-reg-del { margin-left: auto; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; border: 1.5px solid var(--border); background: transparent; color: var(--text-3); cursor: pointer; flex-shrink: 0; }
-.maiz-reg-del:hover { border-color: var(--red); color: var(--red); background: #fee2e2; }
-.maiz-reg-del svg { width: 17px; height: 17px; }
-.prov-tabs .maiz-tab.on { color: var(--accent); border-bottom-color: var(--accent); }
-.prov-ico-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 10px; border-radius: 8px; border: 1.5px solid var(--border); background: transparent; color: var(--text-2); cursor: pointer; font-size: 12.5px; font-family: inherit; }
-.prov-ico-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
-.prov-ico-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
-.prov-card-archivo { opacity: .88; border-left: 4px solid var(--green) !important; }
 .maiz-row.maiz-ro { cursor: default; }
 .view-watermark { mix-blend-mode: multiply; }
 </style>
 </head>
-<body>
+<style id="movil-css">
+/* ═══════════════════════════════════════════════════
+   PISCIS MÓVIL — capa de optimización para teléfono
+   (se aplica siempre: body.mobile-layout está fijo)
+═══════════════════════════════════════════════════ */
+:root { --m-nav-h: 60px; --m-safe-b: env(safe-area-inset-bottom, 0px); --m-safe-t: env(safe-area-inset-top, 0px); }
+html, body { height: 100%; overscroll-behavior: none; }
+body.mobile-layout { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body.mobile-layout { overflow: hidden; width: 100%; }
+/* Altura real visible (la calcula JS en cada equipo); dvh/vh como respaldo */
+body.mobile-layout #app { height: 100vh; height: 100dvh; height: var(--app-h, 100dvh); max-width: 100vw; overflow: hidden; }
+body.mobile-layout #main, body.mobile-layout .view { min-width: 0; max-width: 100vw; }
+
+/* Ajustes: filas apiladas para que no se aprieten */
+body.mobile-layout #view-ajustes .settings-row { flex-wrap: wrap; gap: 8px; }
+body.mobile-layout #main { padding-top: var(--m-safe-t); }
+body.mobile-layout::after { display: none !important; }
+#mobile-layout-btn { display: none !important; }
+body.mobile-layout .view-watermark { display: none !important; }
+body.mobile-layout .kbd { display: none !important; }
+
+/* iOS: evita el zoom automático al tocar campos */
+body.mobile-layout input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=color]),
+body.mobile-layout select, body.mobile-layout textarea { font-size: 16px !important; }
+body.mobile-layout .settings-input { width: 100% !important; max-width: 100%; }
+body.mobile-layout .search-wrap { max-width: none !important; }
+
+/* ── Barra inferior: 4 accesos + Más ── */
+body.mobile-layout #sidebar {
+  height: calc(var(--m-nav-h) + var(--m-safe-b));
+  padding-bottom: var(--m-safe-b);
+  background: var(--surface);
+  box-shadow: 0 -1px 0 var(--border);
+  border-top: none;
+}
+body.mobile-layout #sidebar .sidebar-nav { overflow: hidden; justify-content: stretch; }
+body.mobile-layout #sidebar .nav-item:not([data-view="ventas"]):not([data-view="historial"]):not([data-view="caja"]):not([data-view="productos"]) { display: none !important; }
+body.mobile-layout #sidebar .nav-item, body.mobile-layout #mobile-more-btn {
+  min-height: var(--m-nav-h); flex: 1 1 0; min-width: 0; padding: 6px 2px 4px; gap: 3px;
+  background: none !important; position: relative;
+}
+body.mobile-layout #sidebar .nav-label, body.mobile-layout #mobile-more-btn span:last-child { font-size: 11px; font-weight: 600; letter-spacing: 0; }
+body.mobile-layout #sidebar .nav-icon svg { width: 22px; height: 22px; }
+body.mobile-layout #sidebar .nav-item.active, body.mobile-layout #mobile-more-btn.active-more { color: var(--accent); }
+body.mobile-layout #sidebar .nav-item.active::before, body.mobile-layout #mobile-more-btn.active-more::before {
+  content: ''; position: absolute; top: 0; left: 28%; right: 28%; height: 3px; border-radius: 0 0 3px 3px; background: var(--accent);
+}
+#mobile-more-btn .m-more-ico { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; width: 18px; height: 18px; margin: 2px 0; }
+#mobile-more-btn .m-more-ico i { border: 1.8px solid currentColor; border-radius: 3px; }
+#mobile-more-btn .m-dot { position: absolute; top: 8px; left: calc(50% + 8px); min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: var(--red); color: #fff; font-size: 10px; font-weight: 700; display: none; align-items: center; justify-content: center; font-style: normal; }
+#mobile-more-btn .m-dot.on { display: flex; }
+
+/* ── Cajón "Más" en cuadrícula ── */
+body.mobile-layout #mobile-nav-drawer {
+  bottom: calc(var(--m-nav-h) + var(--m-safe-b));
+  display: none; padding: 10px 12px 14px; max-height: 70vh;
+  grid-template-columns: repeat(3, 1fr); gap: 8px;
+}
+body.mobile-layout #mobile-nav-drawer.open { display: grid; }
+body.mobile-layout #mobile-nav-drawer::before { grid-column: 1 / -1; }
+body.mobile-layout .mobile-drawer-item {
+  flex-direction: column; justify-content: center; gap: 6px; padding: 14px 4px; min-height: 76px;
+  text-align: center; font-size: 12px; font-weight: 600; background: var(--surface2); border-radius: 14px; position: relative;
+}
+body.mobile-layout .mobile-drawer-item svg { width: 22px; height: 22px; }
+body.mobile-layout .mobile-drawer-item .m-badge { position: absolute; top: 8px; right: 10px; background: var(--red); color: #fff; font-size: 10px; font-weight: 700; border-radius: 8px; padding: 1px 5px; }
+
+/* ── Toasts arriba, sin tapar botones ── */
+body.mobile-layout #toast-container { top: calc(var(--m-safe-t) + 10px); bottom: auto; left: 12px; right: 12px; align-items: center; z-index: 100000; pointer-events: none; }
+body.mobile-layout .toast { max-width: 100%; font-size: 14px; padding: 10px 14px; border-radius: 12px; }
+body.mobile-layout #toast-container .toast:nth-last-child(n+3) { display: none; }
+
+/* ═══ VENTAS ═══ */
+body.mobile-layout .ventas-header { padding: 10px 12px 8px !important; gap: 8px !important; flex-direction: column; align-items: stretch; }
+body.mobile-layout #search-input, body.mobile-layout #pb-search { padding-top: 12px; padding-bottom: 12px; border-radius: 14px; }
+body.mobile-layout .ventas-actions {
+  flex-wrap: nowrap !important; overflow-x: auto; margin: 0 -12px; padding: 0 12px 2px; gap: 6px !important;
+  scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+body.mobile-layout .ventas-actions::-webkit-scrollbar { display: none; }
+body.mobile-layout .ventas-actions .btn { flex-shrink: 0; min-height: 38px; border-radius: 19px; padding: 6px 14px; white-space: nowrap; }
+body.mobile-layout .ventas-actions .discount-display:not(.visible) { display: none; }
+body.mobile-layout .total-bar { padding: 6px 14px !important; gap: 10px; border-bottom-width: 2px; }
+body.mobile-layout .total-bar strong { font-size: 40px !important; }
+body.mobile-layout .total-bar > span:first-child { font-size: 12px !important; }
+body.mobile-layout .ventas-body { padding: 8px 10px !important; }
+body.mobile-layout .empty-ticket { padding: 40px 16px; }
+
+/* Ticket como tarjetas */
+body.mobile-layout .ticket-table, body.mobile-layout .ticket-table tbody { display: block; background: none; box-shadow: none; border-radius: 0; }
+body.mobile-layout .ticket-table thead { display: none; }
+body.mobile-layout #ticket-tbody tr {
+  display: grid; grid-template-columns: auto 1fr auto auto; grid-template-rows: auto auto auto;
+  column-gap: 10px; row-gap: 2px; align-items: center;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 10px 6px 10px 10px; margin-bottom: 8px;
+}
+body.mobile-layout #ticket-tbody tr.ticket-row-selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-bg); }
+body.mobile-layout #ticket-tbody td { display: block; padding: 0 !important; border: 0 !important; background: none !important; }
+body.mobile-layout #ticket-tbody td:nth-child(1) { grid-column: 1; grid-row: 1 / 4; align-self: start; }
+body.mobile-layout #ticket-tbody td:nth-child(1) img, body.mobile-layout #ticket-tbody td:nth-child(1) > div { width: 44px !important; height: 44px !important; }
+body.mobile-layout #ticket-tbody .td-name { grid-column: 2 / 4; grid-row: 1; font-size: 15px !important; font-weight: 600; line-height: 1.25; }
+body.mobile-layout #ticket-tbody .td-del { grid-column: 4; grid-row: 1; }
+body.mobile-layout #ticket-tbody .del-btn { width: 34px; height: 34px; font-size: 16px; }
+body.mobile-layout #ticket-tbody .td-code { grid-column: 2; grid-row: 2; font-size: 11px !important; }
+body.mobile-layout #ticket-tbody .td-um { display: none; }
+body.mobile-layout #ticket-tbody .td-price { grid-column: 2; grid-row: 3; text-align: left; font-size: 13px; color: var(--text-2); }
+body.mobile-layout #ticket-tbody .td-price::after { content: ' c/u'; font-size: 11px; color: var(--text-3); }
+body.mobile-layout #ticket-tbody .td-qty {
+  grid-column: 3; grid-row: 2 / 4; min-width: 52px; padding: 6px 10px !important; border-radius: 10px;
+  background: var(--accent-bg) !important; color: var(--accent); font-size: 16px; text-align: center; cursor: pointer;
+}
+body.mobile-layout #ticket-tbody .td-qty::before { content: '×'; margin-right: 2px; opacity: .6; }
+body.mobile-layout #ticket-tbody .td-subtotal { grid-column: 4; grid-row: 2 / 4; font-size: 15px; text-align: right; white-space: nowrap; justify-self: end; padding-right: 4px !important; }
+body.mobile-layout #ticket-tbody tr:has(td[colspan]) { display: block; }
+
+/* Pie de ventas: folio + limpiar + COBRAR grande */
+body.mobile-layout .ventas-footer { padding: 8px 12px !important; gap: 8px; align-items: center; background: var(--surface); border-top: 1px solid var(--border); }
+body.mobile-layout .ventas-footer > div[style*="flex:1"] { display: none; }
+body.mobile-layout .ventas-footer .folio-tag { font-size: 11px; }
+body.mobile-layout .ventas-footer .btn-ghost { min-height: 48px; border-radius: 14px; }
+body.mobile-layout #m-cobrar-wrap { flex: 1; position: relative; display: flex; }
+body.mobile-layout #btn-cobrar { flex: 1; justify-content: center; min-height: 52px; font-size: 17px !important; font-weight: 700; border-radius: 14px; }
+
+/* Venta en espera (pane B) apilada */
+body.mobile-layout.split-on #ventas-split { flex-direction: column; }
+body.mobile-layout.split-on #pane-b { border-left: 0; border-top: 3px solid var(--orange); max-height: 45%; }
+body.mobile-layout .pb-footer { flex-wrap: wrap; gap: 6px; padding: 8px 10px; }
+
+/* ═══ Encabezados genéricos de vistas ═══ */
+body.mobile-layout .productos-header, body.mobile-layout .inv-header, body.mobile-layout .prestamos-header { padding: 10px 12px !important; gap: 8px !important; flex-wrap: wrap; }
+body.mobile-layout .productos-header-row1 { flex-wrap: wrap; gap: 6px; }
+body.mobile-layout .productos-header-row1 .search-wrap, body.mobile-layout .inv-header .search-wrap, body.mobile-layout .prestamos-header .search-wrap { flex: 1 1 100% !important; }
+body.mobile-layout .productos-header-row2 { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+body.mobile-layout .productos-header-row2 select { max-width: none !important; flex: 1; }
+body.mobile-layout .panel-header { padding: 12px !important; }
+
+/* Tablas restantes: desplazamiento horizontal dentro de su caja */
+body.mobile-layout .view table:not(.ticket-table):not(#products-table):not(#stock-table) { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; max-width: 100%; }
+
+/* Productos como tarjetas */
+body.mobile-layout .productos-table-wrap { padding: 8px 10px !important; }
+body.mobile-layout #products-table, body.mobile-layout #products-table tbody { display: block; background: none; box-shadow: none; border: 0; }
+body.mobile-layout #products-table thead { display: none; }
+body.mobile-layout #products-tbody tr {
+  display: grid; grid-template-columns: 1fr auto; column-gap: 10px; row-gap: 3px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; margin-bottom: 8px;
+}
+body.mobile-layout #products-tbody td { display: block; padding: 0 !important; border: 0 !important; background: none !important; font-size: 12px; }
+body.mobile-layout #products-tbody td:nth-child(2) { grid-column: 1; grid-row: 1; font-size: 15px; font-weight: 600; }
+body.mobile-layout #products-tbody td:nth-child(7) { grid-column: 2; grid-row: 1; font-size: 16px; text-align: right; }
+body.mobile-layout #products-tbody td:nth-child(1) { grid-column: 1; grid-row: 2; color: var(--text-3); }
+body.mobile-layout #products-tbody td:nth-child(9) { grid-column: 2; grid-row: 2; text-align: right; }
+body.mobile-layout #products-tbody td:nth-child(9)::before { content: 'margen '; color: var(--text-3); }
+body.mobile-layout #products-tbody td:nth-child(5) { grid-column: 1; grid-row: 3; }
+body.mobile-layout #products-tbody td:nth-child(6) { grid-column: 2; grid-row: 3; text-align: right; color: var(--text-3); }
+body.mobile-layout #products-tbody td:nth-child(6)::before { content: 'costo '; }
+body.mobile-layout #products-tbody td:nth-child(3), body.mobile-layout #products-tbody td:nth-child(4), body.mobile-layout #products-tbody td:nth-child(8) { display: none; }
+body.mobile-layout #products-tbody td[colspan] { grid-column: 1 / -1; text-align: center; }
+
+/* Stock como tarjetas */
+body.mobile-layout #view-stock { padding: 10px 10px 84px !important; }
+body.mobile-layout #view-stock > div:nth-of-type(2) { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px !important; }
+body.mobile-layout #view-stock > div:nth-of-type(2) > div { min-width: 0 !important; padding: 10px 12px !important; }
+body.mobile-layout #view-stock > div:nth-of-type(2) > div:last-child { grid-column: 1 / -1; }
+body.mobile-layout #view-stock > div:nth-of-type(2) > div > div:nth-child(2) { font-size: 19px !important; }
+body.mobile-layout #view-stock .inv-body { padding: 8px 0 !important; overflow: visible !important; flex: 0 0 auto !important; }
+body.mobile-layout #view-stock .inv-summary-bar { border-radius: 14px; border: 1px solid var(--border); }
+body.mobile-layout #stock-table, body.mobile-layout #stock-table tbody { display: block; background: none; box-shadow: none; }
+body.mobile-layout #stock-table thead { display: none; }
+body.mobile-layout #stock-tbody tr {
+  display: grid; grid-template-columns: 1fr auto; column-gap: 10px; row-gap: 2px; align-items: center;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 10px 14px; margin-bottom: 8px;
+}
+body.mobile-layout #stock-tbody td { display: block; padding: 0 !important; border: 0 !important; background: none !important; }
+body.mobile-layout #stock-tbody td:nth-child(2) { grid-column: 1; grid-row: 1; font-size: 15px; font-weight: 600; }
+body.mobile-layout #stock-tbody td:nth-child(4) { grid-column: 2; grid-row: 1 / 3; font-size: 18px; text-align: right !important; }
+body.mobile-layout #stock-tbody td:nth-child(1) { grid-column: 1; grid-row: 2; font-size: 11px; color: var(--text-3); }
+body.mobile-layout #stock-tbody td:nth-child(3), body.mobile-layout #stock-tbody td:nth-child(5), body.mobile-layout #stock-tbody td:nth-child(6) { display: none; }
+body.mobile-layout #stock-tbody td[colspan] { display: block; grid-column: 1 / -1; text-align: center; }
+body.mobile-layout .inv-summary-bar { flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
+
+/* Historial: lista completa + detalle como hoja inferior */
+body.mobile-layout #view-historial { flex-direction: column; }
+body.mobile-layout .historial-list { width: 100% !important; border-right: 0; flex: 1; min-height: 0; }
+body.mobile-layout .historial-entry { padding: 12px 14px; min-height: 60px; }
+body.mobile-layout .historial-preview {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 9995; max-height: 82vh; max-height: 82dvh;
+  background: var(--surface); border-radius: 18px 18px 0 0; box-shadow: 0 -10px 40px rgba(0,0,0,.25);
+  transform: translateY(105%); transition: transform .25s cubic-bezier(.4,0,.2,1); padding-bottom: var(--m-safe-b);
+}
+body.mobile-layout .historial-preview.m-open { transform: none; }
+body.mobile-layout .historial-preview .preview-body { padding: 4px 16px 12px; }
+body.mobile-layout .historial-preview .preview-actions { flex-wrap: wrap; gap: 6px; padding: 10px 12px; }
+body.mobile-layout .historial-preview .preview-actions .btn { flex: 1 1 30%; justify-content: center; min-height: 44px; }
+.m-sheet-head { display: none; }
+body.mobile-layout .m-sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px 4px 16px; }
+body.mobile-layout .m-sheet-head::before { content: ''; position: absolute; top: 7px; left: 50%; width: 40px; height: 4px; margin-left: -20px; border-radius: 2px; background: var(--border2); }
+body.mobile-layout .m-sheet-head b { font-size: 15px; padding-top: 10px; }
+body.mobile-layout .m-sheet-close { width: 36px; height: 36px; margin-top: 6px; border-radius: 18px; background: var(--surface2); color: var(--text-2); font-size: 16px; }
+#m-sheet-backdrop { display: none; position: fixed; inset: 0; z-index: 9994; background: rgba(0,0,0,.35); }
+#m-sheet-backdrop.open { display: block; }
+
+/* Préstamos apilado */
+body.mobile-layout #view-prestamos > div:last-child { flex-direction: column !important; gap: 8px !important; overflow-y: auto !important; padding: 0 10px; }
+body.mobile-layout #deudores-list { flex: 0 0 auto !important; max-height: none; overflow: visible !important; }
+body.mobile-layout #deudor-detail-panel { flex: 0 0 auto !important; overflow: visible !important; }
+
+/* Presupuestos apilado */
+body.mobile-layout #view-presupuestos { padding: 12px 12px 84px !important; overflow-y: auto !important; }
+body.mobile-layout #view-presupuestos > div:nth-of-type(3) { flex-direction: column !important; overflow: visible !important; flex: 0 0 auto !important; }
+body.mobile-layout #view-presupuestos > div:nth-of-type(3) > div { width: 100% !important; flex: 0 0 auto !important; }
+body.mobile-layout #presupuestos-guardados { max-height: 30vh; }
+
+/* Vistas con padding de escritorio */
+body.mobile-layout #view-stats, body.mobile-layout #view-caja, body.mobile-layout #view-proveedores,
+body.mobile-layout #view-ajustes, body.mobile-layout #view-alertas, body.mobile-layout #view-inventario { padding-left: 10px !important; padding-right: 10px !important; }
+body.mobile-layout .view { padding-bottom: 84px; }
+body.mobile-layout #view-ventas, body.mobile-layout #view-historial { padding-bottom: 0 !important; }
+
+/* ═══ Modales como hoja inferior ═══ */
+body.mobile-layout .modal-overlay { align-items: flex-end !important; justify-content: center !important; }
+body.mobile-layout .modal {
+  max-width: 100% !important; width: 100% !important; border-radius: 20px 20px 0 0 !important;
+  max-height: 92vh; max-height: 92dvh; padding-bottom: var(--m-safe-b); animation: mSheetUp .22s cubic-bezier(.4,0,.2,1);
+}
+@keyframes mSheetUp { from { transform: translateY(40px); opacity: .4; } to { transform: none; opacity: 1; } }
+body.mobile-layout .modal-header { padding: 14px 16px 10px; position: sticky; top: 0; background: var(--surface); z-index: 2; }
+body.mobile-layout .modal-close { width: 38px; height: 38px; font-size: 18px; background: var(--surface2); border-radius: 19px; }
+body.mobile-layout .modal-body { padding: 14px 16px; }
+body.mobile-layout .modal-footer { padding: 10px 16px 12px; position: sticky; bottom: 0; background: var(--surface); flex-wrap: wrap; }
+body.mobile-layout .modal-footer .btn { flex: 1 1 auto; justify-content: center; min-height: 48px; }
+body.mobile-layout .form-row { grid-template-columns: 1fr !important; gap: 0; }
+
+/* Chips de filtro más fáciles de tocar */
+body.mobile-layout .filter-chip { font-size: 13px !important; padding: 6px 12px !important; min-height: 32px; }
+
+/* Fila de búsqueda en Ventas con botón de teclado integrado */
+.m-search-row { display: flex; gap: 8px; align-items: stretch; width: 100%; }
+.m-search-row .search-wrap { flex: 1; min-width: 0; }
+#m-kb-inline {
+  flex-shrink: 0; width: 50px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  background: var(--surface2); color: var(--text-2); border: 1.5px solid var(--border); position: relative;
+}
+body.kb-on #m-kb-inline { background: var(--accent); color: #fff; border-color: var(--accent); }
+body.kb-on #m-kb-inline .m-kb-slash { opacity: 0; }
+body:not(.kb-on).kb-wants #m-kb-inline { border-color: var(--accent); color: var(--accent); }
+body[data-mview="ventas"]:not(.modal-open-m) #m-kb-btn { display: none !important; }
+
+/* ═══ Barra superior con flechas ═══ */
+#m-topbar { display: none; }
+body.mobile-layout #m-topbar {
+  display: grid; grid-template-columns: 52px 1fr 52px; align-items: center; flex-shrink: 0;
+  height: 52px; background: var(--surface); border-bottom: 1px solid var(--border); z-index: 5;
+}
+body.mobile-layout .m-tb-arrow {
+  height: 52px; display: flex; align-items: center; justify-content: center; color: var(--accent);
+  background: none; border: 0; touch-action: manipulation;
+}
+body.mobile-layout .m-tb-arrow:active { background: var(--accent-bg); }
+body.mobile-layout .m-tb-center { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
+body.mobile-layout .m-tb-ico { display: flex; color: var(--accent); }
+body.mobile-layout .m-tb-ico svg { width: 20px; height: 20px; }
+body.mobile-layout .m-tb-title { font-size: 17px; font-weight: 700; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body.mobile-layout .m-tb-pos { font-size: 11px; font-weight: 600; color: var(--text-3); background: var(--surface2); border-radius: 8px; padding: 2px 6px; }
+
+/* ═══ Botón de teclado ═══ */
+#m-kb-btn {
+  position: fixed; right: 12px; bottom: calc(var(--m-nav-h) + var(--m-safe-b) + 12px); z-index: 100001;
+  display: none; align-items: center; gap: 8px; height: 46px; padding: 0 14px 0 12px; border-radius: 23px;
+  background: var(--surface); color: var(--text-2); border: 1.5px solid var(--border2);
+  box-shadow: 0 6px 20px rgba(0,0,0,.16); font: 600 13px var(--font); transition: background .15s, color .15s, border-color .15s, transform .15s;
+  -webkit-user-select: none; user-select: none; touch-action: manipulation;
+}
+body.mobile-layout #m-kb-btn { display: flex; }
+#m-kb-btn svg { flex-shrink: 0; }
+#m-kb-btn .m-kb-slash { transition: opacity .15s; }
+#m-kb-btn .m-kb-txt { white-space: nowrap; }
+body.kb-on #m-kb-btn, body.kb-native #m-kb-btn { background: var(--accent); color: #fff; border-color: var(--accent); }
+body.kb-on #m-kb-btn .m-kb-slash, body.kb-native #m-kb-btn .m-kb-slash { opacity: 0; }
+body:not(.kb-on).kb-wants #m-kb-btn { border-color: var(--accent); color: var(--accent); animation: mKbNudge 1.6s ease-in-out 2; }
+@keyframes mKbNudge { 0%,100% { transform: none; } 50% { transform: translateY(-4px); } }
+body.mobile-layout #m-kb-btn:active { transform: scale(.94); }
+body.modal-open-m:not(.kb-up) #m-kb-btn { top: calc(var(--m-safe-t) + 10px); bottom: auto; }
+/* Con teclado abierto dentro de una ventana: botón compacto arriba de la zona visible, sin tapar campos */
+body.modal-open-m.kb-up #m-kb-btn { top: calc(var(--m-vv-top, 0px) + 8px); bottom: auto !important; width: 44px; height: 44px; padding: 0; justify-content: center; }
+body.modal-open-m.kb-up #m-kb-btn .m-kb-txt { display: none; }
+body.m-sheet-open:not(.modal-open-m) #m-kb-btn { display: none !important; }
+body.kb-up:not(.modal-open-m) #m-kb-btn { bottom: var(--m-kb-bottom, 12px) !important; }
+body.kb-up.m-android #sidebar { display: none; }
+@media (prefers-reduced-motion: reduce) { #m-kb-btn, .historial-preview, .modal { animation: none !important; transition: none !important; } }
+/* ── Pantallas chicas (Android compactos, iPhone SE) ── */
+@media (max-height: 720px) {
+  :root { --m-nav-h: 54px; }
+  body.mobile-layout #m-topbar { height: 44px; }
+  body.mobile-layout .m-tb-arrow { height: 44px; }
+  body.mobile-layout .m-tb-title { font-size: 15px; }
+  body.mobile-layout .total-bar strong { font-size: 32px !important; }
+  body.mobile-layout #btn-cobrar { min-height: 46px; }
+  body.mobile-layout .ventas-footer .btn-ghost { min-height: 44px; }
+  body.mobile-layout #sidebar .nav-icon svg { width: 20px; height: 20px; }
+  body.mobile-layout #search-input { padding-top: 10px; padding-bottom: 10px; }
+}
+@media (max-width: 360px) {
+  body.mobile-layout #sidebar .nav-label, body.mobile-layout #mobile-more-btn span:last-child { font-size: 10px; }
+  body.mobile-layout .m-tb-pos { display: none; }
+  body.mobile-layout .ventas-footer .folio-tag { display: none; }
+  body.mobile-layout #ticket-tbody .td-name { font-size: 14px !important; }
+  body.mobile-layout #products-tbody td:nth-child(2) { font-size: 14px; }
+  body.mobile-layout .modal-footer .btn { min-width: 0; padding-left: 10px; padding-right: 10px; }
+}
+</style>
+
+<body class="mobile-layout">
 
 <!-- ═══ SPLASH ═══ -->
 <div id="splash-screen" style="
@@ -3207,7 +3480,6 @@ body.mobile-layout .sidebar-reload { display: none; }
           <div id="maiz-reg-lista" style="display:flex;flex-direction:column;gap:8px;max-height:62vh;overflow-y:auto;padding:2px"></div>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-ghost" style="color:var(--red);margin-right:auto" onclick="eliminarMaizRegistro(_maizRegSel)">Eliminar registro</button>
           <button class="btn btn-primary" onclick="closeModal('modal-maiz-registro')">Cerrar</button>
         </div>
       </div>
@@ -3233,66 +3505,44 @@ body.mobile-layout .sidebar-reload { display: none; }
 
     <!-- ── PRESUPUESTOS ── -->
     <section id="view-presupuestos" class="view">
-      <div class="ventas-header">
-        <div class="search-wrap" id="presup-search-wrap" style="max-width:none">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="presupuesto-search" class="presup-input" placeholder="Buscar producto o escanear código para el presupuesto…" autocomplete="off">
-          <div class="autocomplete-dropdown" id="presupuesto-dropdown"></div>
+      <div class="view-watermark"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:0 0 14px;border-bottom:1px solid var(--border);margin-bottom:14px;flex-shrink:0;flex-wrap:wrap;gap:8px">
+        <div>
+          <div style="font-size:20px;font-weight:800">🧮 Presupuestos</div>
+          <div style="font-size:12px;color:var(--text-3)">Simulador de ticket — no registra ventas ni descuenta stock</div>
         </div>
-        <div class="ventas-actions">
-          <button class="btn btn-ghost btn-sm" onclick="openPresupuestosGuardados()" style="white-space:nowrap">📂 Guardados <span id="presup-guardados-count" class="maiz-tab-count">0</span></button>
-          <button class="btn btn-ghost btn-sm" onclick="imprimirTarjetaPresentacion()" style="white-space:nowrap">🪪 Tarjeta</button>
-          <button class="btn btn-ghost btn-sm" onclick="guardarPresupuesto()" style="white-space:nowrap">💾 Guardar</button>
-          <button class="btn btn-primary" onclick="imprimirPresupuesto()" style="white-space:nowrap">🖨 Imprimir</button>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-ghost btn-sm" onclick="imprimirTarjetaPresentacion()">🪪 Tarjeta de presentación</button>
+          <button class="btn btn-ghost btn-sm" onclick="clearPresupuesto()">🗑 Limpiar</button>
+          <button class="btn btn-primary" onclick="imprimirPresupuesto()">🖨 Imprimir presupuesto</button>
         </div>
       </div>
-      <div class="total-bar" style="border-bottom-color:#7c3aed">
-        <span style="font-size:15px;color:var(--text-3);font-weight:500;letter-spacing:.04em;text-transform:uppercase">Total presupuesto</span>
-        <strong id="presupuesto-total" style="font-family:var(--number-font);letter-spacing:-.03em;color:#7c3aed">$0.00</strong>
-      </div>
-      <div class="ventas-body" id="presupuesto-body">
-        <div class="empty-ticket" id="presupuesto-empty">
-          <div class="empty-icon">🧮</div>
-          <div>Agrega productos con la barra de búsqueda</div>
-          <div style="font-size:12px;color:var(--text-3)">Simulador de ticket — no registra ventas ni descuenta stock &nbsp;·&nbsp; <span class="kbd">↑</span><span class="kbd">↓</span> elegir &nbsp; <span class="kbd">Enter</span> agregar</div>
+      <div style="display:flex;gap:16px;flex:1;min-height:0;overflow:hidden">
+        <!-- Buscador izq -->
+        <div style="flex:1;display:flex;flex-direction:column;gap:10px">
+          <div style="position:relative">
+            <input type="text" class="form-control" id="presupuesto-search" placeholder="Buscar producto o escanear..." oninput="searchPresupuesto()" style="padding-left:36px">
+            <span style="position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-3)">🔍</span>
+            <div id="presupuesto-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg-1);border:1px solid var(--border);border-radius:var(--radius-sm);max-height:200px;overflow-y:auto;z-index:50"></div>
+          </div>
+          <div style="font-size:12px;color:var(--text-3)">Presupuestos guardados:</div>
+          <div id="presupuestos-guardados" style="overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:6px"></div>
         </div>
-        <table class="ticket-table" id="presupuesto-table" style="display:none">
-          <thead>
-            <tr>
-              <th>Código</th>
-              <th>Producto</th>
-              <th>UM</th>
-              <th style="text-align:center">Cant.</th>
-              <th style="text-align:right">Precio</th>
-              <th style="text-align:right">Subtotal</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody id="presupuesto-tbody"></tbody>
-        </table>
-      </div>
-      <div class="ventas-footer">
-        <span class="folio-tag" id="presupuesto-info">0 productos</span>
-        <div style="flex:1"></div>
-        <button class="btn btn-ghost btn-sm" onclick="clearPresupuesto()">🗑 Limpiar</button>
+        <!-- Ticket presupuesto der -->
+        <div style="width:320px;flex-shrink:0;display:flex;flex-direction:column">
+          <div style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--text-2)">Vista previa del presupuesto</div>
+          <div style="flex:1;overflow-y:auto;border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;background:var(--surface1)">
+            <div id="presupuesto-ticket-items" style="display:flex;flex-direction:column;gap:6px;min-height:100px"></div>
+          </div>
+          <div style="margin-top:10px;padding:10px;background:var(--surface2);border-radius:var(--radius-sm)">
+            <div style="display:flex;justify-content:space-between;font-size:18px;font-weight:800">
+              <span>TOTAL</span>
+              <span id="presupuesto-total" style="color:var(--accent)">$0.00</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
-    <!-- MODAL PRESUPUESTOS GUARDADOS -->
-    <div class="modal-overlay" id="modal-presupuestos-guardados">
-      <div class="modal" style="max-width:min(560px,96vw);width:96vw">
-        <div class="modal-header">
-          <span class="modal-title">📂 Presupuestos guardados</span>
-          <button class="modal-close" onclick="closeModal('modal-presupuestos-guardados')">✕</button>
-        </div>
-        <div class="modal-body">
-          <div id="presupuestos-guardados" style="display:flex;flex-direction:column;gap:8px;max-height:62vh;overflow-y:auto;padding:2px"></div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-primary" onclick="closeModal('modal-presupuestos-guardados')">Cerrar</button>
-        </div>
-      </div>
-    </div>
 
     <!-- ── PROVEEDORES ── -->
     <section id="view-proveedores" class="view">
@@ -3318,11 +3568,6 @@ body.mobile-layout .sidebar-reload { display: none; }
           <div id="prov-kpi-deuda" style="font-size:22px;font-weight:800;color:var(--red)">$0.00</div>
         </div>
       </div>
-      <div class="maiz-tabs prov-tabs">
-        <button type="button" class="maiz-tab on" data-tab="activos" onclick="provTab('activos')">Por liquidar <span id="prov-activos-count" class="maiz-tab-count">0</span></button>
-        <button type="button" class="maiz-tab" data-tab="archivo" onclick="provTab('archivo')">Archivo — al corriente <span id="prov-archivo-count" class="maiz-tab-count">0</span></button>
-      </div>
-      <div id="prov-tab-nota" style="font-size:11.5px;color:var(--text-3);margin-bottom:10px">Los proveedores que quedan al corriente pasan solos al Archivo. Usa el ícono de guardar para archivar uno manualmente.</div>
       <div id="proveedores-list" style="display:flex;flex-direction:column;gap:10px;overflow-y:auto"></div>
     </section>
 
@@ -3914,24 +4159,6 @@ body.mobile-layout .sidebar-reload { display: none; }
           </div>
         </div>
 
-        <!-- Tamaño botones de Ventas -->
-        <div class="settings-row" style="flex-wrap:wrap;gap:12px;align-items:flex-start">
-          <div class="settings-row-label" style="min-width:160px">
-            <strong>Botones de Ventas</strong>
-            <span>Descuento, Préstamo, Stock, F8, Cobrar y Scan</span>
-          </div>
-          <div style="flex:1;min-width:240px">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-              <input type="range" min="11" max="34" value="13" id="size-ventas-btns" style="flex:1;accent-color:var(--accent)" oninput="applyVentasBtnSize()">
-              <span style="font-size:12px;font-family:var(--mono);color:var(--text-2);width:36px;text-align:right" id="size-ventas-btns-label">13px</span>
-            </div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center" id="preview-ventas-btns">
-              <span class="btn btn-ghost" style="pointer-events:none">F12 Préstamo</span>
-              <span class="btn btn-green" style="pointer-events:none;font-weight:700" data-cobrar="1">F10 Cobrar</span>
-            </div>
-          </div>
-        </div>
-
         <!-- Tamaño botones -->
         <div class="settings-row" style="flex-wrap:wrap;gap:12px;align-items:flex-start">
           <div class="settings-row-label" style="min-width:160px">
@@ -3940,7 +4167,7 @@ body.mobile-layout .sidebar-reload { display: none; }
           </div>
           <div style="flex:1;min-width:240px">
             <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-              <input type="range" min="10" max="26" value="13" id="size-buttons" style="flex:1;accent-color:var(--accent)" oninput="applyButtonSize()">
+              <input type="range" min="10" max="20" value="13" id="size-buttons" style="flex:1;accent-color:var(--accent)" oninput="applyButtonSize()">
               <span style="font-size:12px;font-family:var(--mono);color:var(--text-2);width:36px;text-align:right" id="size-buttons-label">13px</span>
             </div>
             <div style="display:inline-flex;padding:8px 16px;background:var(--accent);color:#fff;border-radius:8px;font-size:13px" id="preview-btn">Cobrar</div>
@@ -4915,13 +5142,13 @@ body.mobile-layout .sidebar-reload { display: none; }
       <div class="form-row">
         <div class="form-group">
           <label class="form-label">Clave</label>
-          <input type="text" class="form-control mono" id="p-clave" placeholder="Ej: CL-00123" autocomplete="off">
-          <div class="form-hint">Clave interna o del proveedor · también sirve para buscar</div>
+          <input type="text" class="form-control mono" id="p-clave" placeholder="Ej: ABC-1234" autocomplete="off" autocapitalize="characters">
+          <div class="form-hint">Clave interna o del proveedor (opcional)</div>
         </div>
         <div class="form-group">
           <label class="form-label">Lote</label>
-          <input type="text" class="form-control mono" id="p-lote" placeholder="Ej: L2024ABC" autocomplete="off">
-          <div class="form-hint">Número de lote del producto</div>
+          <input type="text" class="form-control mono" id="p-lote" placeholder="Ej: L2024ABC" autocomplete="off" autocapitalize="characters">
+          <div class="form-hint">Número de lote del producto (opcional)</div>
         </div>
       </div>
       <div class="form-row">
@@ -5006,7 +5233,7 @@ body.mobile-layout .sidebar-reload { display: none; }
         </div>
         <input type="hidden" id="p-img-data">
       </div>
-      <!-- Caducidad (farmacia) -->
+      <!-- Lote y caducidad (farmacia) -->
       <div class="form-row" style="margin-top:4px">
         <div class="form-group">
           <label class="form-label">Fecha de caducidad</label>
@@ -5561,7 +5788,7 @@ function navigateTo(view) {
   if (view === 'maiz')       renderMaizList();
   if (view === 'gold')       { if (!_goldDias.length) loadGoldData(); else renderGoldList(); }
   if (view === 'recargas')   { renderRecargas(); }
-  if (view === 'presupuestos') { renderPresupuestosGuardados(); renderPresupuestoTicket(); _presFocus(80); }
+  if (view === 'presupuestos') { renderPresupuestosGuardados(); renderPresupuestoTicket(); }
   if (view === 'proveedores') renderProveedores();
   if (view === 'stats')      { populateStatsProveedorFilter(); renderStatsFiltered(); renderChartDias(); renderChartAnual(); renderChartComision(); }
   if (view === 'caja') { 
@@ -5578,6 +5805,7 @@ function navigateTo(view) {
   if (view === 'inventario') setTimeout(()=>document.getElementById('inv-scan-input')?.focus(), 80);
   if (view === 'alertas')   { renderAlertas(); }
   if (view === 'ajustes')    _populateDeviceSettings();
+  if (window._movilAfterNav) window._movilAfterNav(view);
 }
 
 // Sidebar toggle
@@ -5626,7 +5854,7 @@ searchInput.addEventListener('input', () => {
   }
 
   // Exact barcode match → add immediately (no length restriction)
-  const exact = state.products.find(p => p.code === raw);
+  const exact = state.products.find(p => p.code === raw) || state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === raw.toLowerCase());
   if (exact) {
     addToTicket(exact);
     searchInput.value = '';
@@ -5745,7 +5973,7 @@ searchInput.addEventListener('keydown', e => {
     if (!raw) return;
     if (raw.toUpperCase() === 'RR' && !_stockMode) { searchInput.value = ''; dropdown.classList.remove('open'); _ddFocusIdx = -1; openRecargaVenta(); return; }
     if (raw === '.' && !_stockMode) { searchInput.value = ''; dropdown.classList.remove('open'); _ddFocusIdx = -1; openProductoLibre(); return; }
-    const exact = state.products.find(p => p.code === raw);
+    const exact = state.products.find(p => p.code === raw) || state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === raw.toLowerCase());
     if (exact) { addToTicket(exact); searchInput.value = ''; dropdown.classList.remove('open'); _ddFocusIdx = -1; return; }
     const first = state.products.find(p =>
       _matchProduct(p, raw)
@@ -6123,157 +6351,55 @@ window.addEventListener('firebase-ready', () => {
   });
 });
 
-// ── Buscador (mismo comportamiento que Ventas) ──
-const _presInput    = document.getElementById('presupuesto-search');
-const _presDropdown = document.getElementById('presupuesto-dropdown');
-let _presIdx = -1;
-
-function _presFocus(delay = 30) {
-  if (_isMobileLayout && _isMobileLayout()) return;
-  setTimeout(() => {
-    if (state.currentView === 'presupuestos' && !document.querySelector('.modal-overlay.open')) _presInput.focus();
-  }, delay);
-}
-function _presCerrarDD() { _presDropdown.classList.remove('open'); _presIdx = -1; }
-function _presBuscar(raw) {
-  return _ordenarResultados(state.products.filter(p => _matchProduct(p, raw)), raw);
-}
-function _presHighlight(idx) {
-  const items = _presDropdown.querySelectorAll('.autocomplete-item');
-  items.forEach(el => el.classList.remove('dd-focus'));
-  if (idx >= 0 && idx < items.length) {
-    items[idx].classList.add('dd-focus');
-    _scrollDentro(_presDropdown, items[idx], 4);
-  }
-  _presIdx = idx;
-}
 function searchPresupuesto() {
-  const raw = _presInput.value.trim();
-  if (!raw) { _presCerrarDD(); return; }
-  const exact = state.products.find(p => p.code && String(p.code) === raw);
-  if (exact) { addPresupuestoItem(exact.id); return; }
-  const res = _presBuscar(raw);
-  if (!res.length) { _presCerrarDD(); return; }
-  const q = raw.toLowerCase();
-  _presDropdown.innerHTML = _ddHeader(res.length) + res.map(p => `
-    <div class="autocomplete-item" data-id="${_esc2(p.id)}">
-      <div style="flex:1;min-width:0"><div class="ac-name">${highlight(_esc2(p.name), q)}</div><div class="ac-code">${_esc2(p.code || '')}</div></div>
-      <span class="ac-price">$${Number(p.price || 0).toFixed(2)}</span>
+  const q = document.getElementById('presupuesto-search').value.trim();
+  const dd = document.getElementById('presupuesto-dropdown');
+  if (!q) { dd.style.display = 'none'; return; }
+  const matches = _ordenarResultados(state.products.filter(p => _matchProduct(p, q)), q);
+  if (!matches.length) { dd.style.display = 'none'; return; }
+  dd.innerHTML = matches.map(p => `
+    <div onclick="addPresupuestoItem('${p.id}')"
+      style="padding:8px 12px;cursor:pointer;border-bottom:1px solid var(--border);display:flex;justify-content:space-between"
+      onmouseover="this.style.background='var(--accent-bg)'" onmouseout="this.style.background=''">
+      <span style="font-size:13px;font-weight:600">${p.name}</span>
+      <span style="font-size:12px;color:var(--text-2)">$${(p.price||0).toFixed(2)}</span>
     </div>`).join('');
-  _presDropdown.classList.add('open');
-  _presIdx = -1;
+  dd.style.display = 'block';
 }
-_presInput.addEventListener('input', searchPresupuesto);
-// mousedown evita que el buscador pierda el foco al elegir con el mouse
-_presDropdown.addEventListener('mousedown', e => e.preventDefault());
-_presDropdown.addEventListener('click', e => {
-  const el = e.target.closest('.autocomplete-item');
-  if (el) addPresupuestoItem(el.dataset.id);
-});
-_presInput.addEventListener('keydown', e => {
-  const open = _presDropdown.classList.contains('open');
-  const items = _presDropdown.querySelectorAll('.autocomplete-item');
-  if (e.key === 'ArrowDown' && open) { e.preventDefault(); _presHighlight(Math.min(_presIdx + 1, items.length - 1)); return; }
-  if (e.key === 'ArrowUp' && open)   { e.preventDefault(); _presHighlight(Math.max(_presIdx - 1, 0)); return; }
-  if (e.key === 'Escape') { _presCerrarDD(); return; }
-  if (e.key !== 'Enter') return;
-  e.preventDefault();
-  e.stopPropagation();
-  if (open && _presIdx >= 0 && items[_presIdx]) { addPresupuestoItem(items[_presIdx].dataset.id); return; }
-  const raw = _presInput.value.trim();
-  if (!raw) return;
-  const exact = state.products.find(p => p.code && String(p.code) === raw);
-  const res = exact ? [exact] : _presBuscar(raw);
-  if (res.length) addPresupuestoItem(res[0].id);
-  else { try { beepError(); } catch (x) {} _presInput.value = ''; _presCerrarDD(); }
-});
-document.addEventListener('click', e => {
-  if (!e.target.closest('#presup-search-wrap')) _presCerrarDD();
-});
 
 function addPresupuestoItem(prodId) {
   const prod = state.products.find(p => String(p.id) === String(prodId));
   if (!prod) return;
   const existing = _presupuestoItems.find(i => String(i.prodId) === String(prodId));
-  if (existing) existing.qty = parseFloat((existing.qty + 1).toFixed(3));
-  else _presupuestoItems.push({ prodId: prod.id, code: prod.code || '', um: prod.um || 'pza', name: prod.name, price: prod.price || 0, qty: 1 });
-  _presInput.value = '';
-  _presCerrarDD();
-  renderPresupuestoTicket(String(prodId));
-  _presFocus(0);
+  if (existing) existing.qty++;
+  else _presupuestoItems.push({ prodId: prod.id, name: prod.name, price: prod.price||0, qty: 1 });
+  document.getElementById('presupuesto-search').value = '';
+  document.getElementById('presupuesto-dropdown').style.display = 'none';
+  renderPresupuestoTicket();
 }
 
-function presupCant(i, delta) {
-  const it = _presupuestoItems[i];
-  if (!it) return;
-  it.qty = parseFloat((it.qty + delta).toFixed(3));
-  if (it.qty <= 0) _presupuestoItems.splice(i, 1);
-  renderPresupuestoTicket();
-  _presFocus(0);
-}
-function presupSetCant(i, val) {
-  const it = _presupuestoItems[i];
-  if (!it) return;
-  const v = parseFloat(val);
-  if (isNaN(v) || v <= 0) _presupuestoItems.splice(i, 1); else it.qty = v;
-  renderPresupuestoTicket();
-  _presFocus(0);
-}
-function presupQuitar(i) {
-  _presupuestoItems.splice(i, 1);
-  renderPresupuestoTicket();
-  _presFocus(0);
-}
-
-function renderPresupuestoTicket(scrollId) {
-  const tbody = document.getElementById('presupuesto-tbody');
+function renderPresupuestoTicket() {
+  const el = document.getElementById('presupuesto-ticket-items');
   const totalEl = document.getElementById('presupuesto-total');
-  if (!tbody || !totalEl) return;
-  const vacio = !_presupuestoItems.length;
-  document.getElementById('presupuesto-empty').style.display = vacio ? 'flex' : 'none';
-  document.getElementById('presupuesto-table').style.display = vacio ? 'none' : 'table';
-  tbody.innerHTML = _presupuestoItems.map((it, i) => {
-    const prod = state.products.find(p => String(p.id) === String(it.prodId));
-    const code = it.code || prod?.code || '';
-    const um = it.um || prod?.um || 'pza';
-    return `<tr data-id="${_esc2(it.prodId)}">
-      <td class="td-code">${_esc2(code)}</td>
-      <td class="td-name">${_esc2(it.name)}</td>
-      <td class="td-um">${_esc2(um)}</td>
-      <td class="td-qty" style="white-space:nowrap">
-        <button class="presup-qbtn" onclick="presupCant(${i},-1)" title="Quitar uno">−</button><input class="presup-qty" type="number" min="0" step="any" value="${it.qty}" onchange="presupSetCant(${i},this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();this.blur();}"><button class="presup-qbtn" onclick="presupCant(${i},1)" title="Agregar uno">+</button>
-      </td>
-      <td class="td-price">$${Number(it.price).toFixed(2)}</td>
-      <td class="td-subtotal">$${(it.price * it.qty).toFixed(2)}</td>
-      <td class="td-del"><button class="del-btn" onclick="presupQuitar(${i})" title="Eliminar">✕</button></td>
-    </tr>`;
-  }).join('');
-  const total = _presupuestoItems.reduce((s, i) => s + i.price * i.qty, 0);
+  if (!_presupuestoItems.length) {
+    el.innerHTML = '<div style="color:var(--text-3);font-size:13px;text-align:center;padding:20px">Busca productos para agregar</div>';
+    totalEl.textContent = '$0.00';
+    return;
+  }
+  el.innerHTML = _presupuestoItems.map((item, i) => `
+    <div style="display:flex;align-items:center;gap:6px;font-size:13px;border-bottom:1px solid var(--border);padding-bottom:6px">
+      <div style="flex:1">${item.name}</div>
+      <input type="number" value="${item.qty}" min="1" step="1"
+        style="width:44px;font-size:12px;text-align:center;border:1px solid var(--border);border-radius:4px;padding:1px 3px"
+        onchange="_presupuestoItems[${i}].qty=parseFloat(this.value)||1;renderPresupuestoTicket()">
+      <div style="width:64px;text-align:right;font-weight:600">$${(item.price*item.qty).toFixed(2)}</div>
+      <button onclick="_presupuestoItems.splice(${i},1);renderPresupuestoTicket()" style="background:none;border:none;cursor:pointer;color:var(--red)">×</button>
+    </div>`).join('');
+  const total = _presupuestoItems.reduce((s,i) => s + i.price * i.qty, 0);
   totalEl.textContent = `$${total.toFixed(2)}`;
-  const piezas = _presupuestoItems.reduce((s, i) => s + i.qty, 0);
-  const info = document.getElementById('presupuesto-info');
-  if (info) info.textContent = `${_presupuestoItems.length} producto${_presupuestoItems.length === 1 ? '' : 's'} · ${parseFloat(piezas.toFixed(3))} pza(s)`;
-  const fila = scrollId ? tbody.querySelector(`tr[data-id="${CSS.escape(scrollId)}"]`) : null;
-  if (fila) _scrollDentro(document.getElementById('presupuesto-body'), fila, 12);
 }
 
-function clearPresupuesto() { _presupuestoItems = []; renderPresupuestoTicket(); _presFocus(0); }
-
-function _presGuardarDoc() {
-  const total = _presupuestoItems.reduce((s, i) => s + i.price * i.qty, 0);
-  const id = String(Date.now());
-  const pres = { id, ts: Date.now(), items: JSON.parse(JSON.stringify(_presupuestoItems)), total, fecha: now(), negocio: state.businessName || 'Mi Negocio' };
-  _presupuestosGuardados = [pres, ..._presupuestosGuardados.filter(x => x.id !== id)];
-  _syncOp('presupuestos', id, pres, 'set');
-  renderPresupuestosGuardados();
-  return pres;
-}
-function guardarPresupuesto() {
-  if (!_presupuestoItems.length) { showToast('Agrega productos primero', 'error'); _presFocus(0); return; }
-  _presGuardarDoc();
-  showToast('💾 Presupuesto guardado', 'success');
-  _presFocus(0);
-}
+function clearPresupuesto() { _presupuestoItems = []; renderPresupuestoTicket(); }
 
 async function imprimirPresupuesto() {
   if (!_presupuestoItems.length) { showToast('Agrega productos primero', 'error'); return; }
@@ -6293,7 +6419,10 @@ async function imprimirPresupuesto() {
   <script>window.onload=()=>{document.title='READY_TO_PRINT';setTimeout(()=>window.print(),300)}<\/script>
   </body></html>`;
 
-  _presGuardarDoc();
+  // Guardar en Firebase
+  const id = String(Date.now());
+  const pres = { id, items: _presupuestoItems, total, fecha, negocio };
+  _syncOp('presupuestos', id, pres, 'set');
 
   const win = window.open('', '_blank', 'width=360,height=600');
   win.document.write(html);
@@ -6319,43 +6448,29 @@ function imprimirTarjetaPresentacion() {
 }
 
 function renderPresupuestosGuardados() {
-  const cnt = document.getElementById('presup-guardados-count');
-  if (cnt) cnt.textContent = _presupuestosGuardados.length;
   const el = document.getElementById('presupuestos-guardados');
   if (!el) return;
-  if (!_presupuestosGuardados.length) { el.innerHTML = '<div style="padding:24px;text-align:center;color:var(--text-3)">Sin presupuestos guardados</div>'; return; }
-  const lista = _presupuestosGuardados.slice().sort((a, b) => (b.ts || Number(b.id) || 0) - (a.ts || Number(a.id) || 0));
-  el.innerHTML = lista.map(p => `
-    <div class="presup-guardado" onclick="cargarPresupuesto('${_esc2(p.id)}')" title="Clic para cargar">
-      <div style="flex:1;min-width:0">
-        <div style="font-weight:700">${_esc2(p.fecha || '')}</div>
-        <div style="font-size:12px;color:var(--text-3)">${(p.items || []).length} producto(s)</div>
+  if (!_presupuestosGuardados.length) { el.innerHTML = '<div style="color:var(--text-3);font-size:12px">Sin presupuestos guardados</div>'; return; }
+  el.innerHTML = _presupuestosGuardados.slice(0,10).map(p => `
+    <div style="background:var(--surface1);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;font-size:12px;cursor:pointer" onclick="cargarPresupuesto('${p.id}')">
+      <div><div style="font-weight:600">${p.fecha}</div><div style="color:var(--text-3)">${(p.items||[]).length} productos</div></div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-weight:700;color:var(--accent)">$${(p.total||0).toFixed(2)}</span>
+        <button onclick="event.stopPropagation();borrarPresupuesto('${p.id}')" style="background:none;border:none;cursor:pointer;color:var(--red);font-size:14px">×</button>
       </div>
-      <span style="font-weight:800;color:#7c3aed;font-family:var(--mono)">$${(p.total || 0).toFixed(2)}</span>
-      <button type="button" class="maiz-reg-del" title="Eliminar presupuesto" onclick="event.stopPropagation();borrarPresupuesto('${_esc2(p.id)}')">${_MAIZ_ICO_DEL}</button>
     </div>`).join('');
-}
-
-function openPresupuestosGuardados() {
-  renderPresupuestosGuardados();
-  _presCerrarDD();
-  openModal('modal-presupuestos-guardados');
 }
 
 function cargarPresupuesto(id) {
   const p = _presupuestosGuardados.find(x => x.id === id);
   if (!p) return;
   _presupuestoItems = JSON.parse(JSON.stringify(p.items || []));
-  closeModal('modal-presupuestos-guardados');
   renderPresupuestoTicket();
   showToast('Presupuesto cargado', 'success');
-  _presFocus(60);
 }
 
 function borrarPresupuesto(id) {
-  _presupuestosGuardados = _presupuestosGuardados.filter(x => x.id !== id);
   _syncOp('presupuestos', id, {}, 'delete');
-  renderPresupuestosGuardados();
   showToast('Presupuesto eliminado', 'success');
 }
 
@@ -6424,8 +6539,6 @@ function saveProveedor() {
     notas: document.getElementById('prov-notas').value.trim(),
     pedidos: _editingProvId ? (_proveedores.find(x=>x.id===_editingProvId)?.pedidos||[]) : []
   };
-  const _prevProv = _editingProvId ? _proveedores.find(x => x.id === _editingProvId) : null;
-  if (_prevProv && typeof _prevProv.archivado === 'boolean') prov.archivado = _prevProv.archivado;
   _syncOp('proveedores', id, prov, 'set');
   closeModal('modal-proveedor');
   showToast(`🚚 Proveedor "${nombre}" guardado`, 'success');
@@ -6474,9 +6587,7 @@ async function confirmarPedido() {
   const monto = units * prov.precioCosto;
   const pedido = { id: String(Date.now()), fecha: now(), unidades: units, monto, liquidado: false };
   prov.pedidos = [...(prov.pedidos||[]), pedido];
-  delete prov.archivado;   // con pedido pendiente regresa solo a "Por liquidar"
   _syncOp('proveedores', prov.id, prov, 'set');
-  renderProveedores();
 
   // Actualizar stock del producto relacionado si existe
   const prod = state.products.find(p => p.name.toLowerCase().includes(prov.producto.toLowerCase()));
@@ -6529,9 +6640,7 @@ async function confirmarLiquidacion() {
   // Marcar pedidos como liquidados
   const ids = new Set(checks.map(c => c.dataset.pedido));
   prov.pedidos = prov.pedidos.map(p => ids.has(p.id) ? {...p, liquidado: true} : p);
-  delete prov.archivado;   // al quedar al corriente pasa solo al Archivo
   _syncOp('proveedores', prov.id, prov, 'set');
-  renderProveedores();
 
   // Registrar retiro en caja
   const folio = `LIQ-${Date.now()}`;
@@ -6545,44 +6654,6 @@ async function confirmarLiquidacion() {
   showToast(`💰 Liquidación registrada: $${total.toFixed(2)} a ${prov.nombre}`, 'success');
 }
 
-// ── Pestañas: Por liquidar / Archivo ──
-let _provTab = 'activos';
-const _PROV_ICO_GUARDAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/></svg>';
-const _PROV_ICO_RESTAURAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>';
-const _PROV_ICO_EDITAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>';
-
-// Al corriente (todos sus pedidos liquidados) → Archivo automático.
-// archivado:true = guardado a mano; archivado:false = regresado a mano a "Por liquidar".
-function _provEnArchivo(p) {
-  const pendientes = (p.pedidos || []).filter(x => !x.liquidado).length;
-  if (pendientes > 0) return false;
-  if (p.archivado === true) return true;
-  if (p.archivado === false) return false;
-  return (p.pedidos || []).length > 0;
-}
-function provTab(tab) {
-  _provTab = tab;
-  document.querySelectorAll('.prov-tabs .maiz-tab').forEach(b => b.classList.toggle('on', b.dataset.tab === tab));
-  renderProveedores();
-}
-function archivarProveedor(id) {
-  const prov = _proveedores.find(x => x.id === id);
-  if (!prov) return;
-  if ((prov.pedidos || []).some(x => !x.liquidado)) { showToast('Tiene pedidos sin liquidar; liquídalos primero', 'warn'); return; }
-  prov.archivado = true;
-  _syncOp('proveedores', prov.id, prov, 'set');
-  renderProveedores();
-  showToast(`💾 ${prov.nombre} guardado en Archivo`, 'success');
-}
-function restaurarProveedor(id) {
-  const prov = _proveedores.find(x => x.id === id);
-  if (!prov) return;
-  prov.archivado = false;
-  _syncOp('proveedores', prov.id, prov, 'set');
-  renderProveedores();
-  showToast(`${prov.nombre} regresó a Por liquidar`, 'success');
-}
-
 function renderProveedores() {
   const el = document.getElementById('proveedores-list');
   if (!el) return;
@@ -6592,22 +6663,12 @@ function renderProveedores() {
   const totalDeuda = _proveedores.reduce((s, p) => s + (p.pedidos||[]).filter(x=>!x.liquidado).reduce((ss,pd)=>ss+pd.monto,0), 0);
   if (kpiDeuda) kpiDeuda.textContent = `$${totalDeuda.toFixed(2)}`;
 
-  const archivo = _proveedores.filter(_provEnArchivo);
-  const activos = _proveedores.filter(p => !_provEnArchivo(p));
-  const ca = document.getElementById('prov-activos-count'); if (ca) ca.textContent = activos.length;
-  const cr = document.getElementById('prov-archivo-count'); if (cr) cr.textContent = archivo.length;
-  const enArchivo = _provTab === 'archivo';
-  const lista = (enArchivo ? archivo : activos).slice().sort((a, b) => String(a.nombre || '').localeCompare(String(b.nombre || ''), 'es'));
   if (!_proveedores.length) { el.innerHTML = '<div style="padding:30px;text-align:center;color:var(--text-3)">Sin proveedores registrados 🚚</div>'; return; }
-  if (!lista.length) {
-    el.innerHTML = `<div style="padding:30px;text-align:center;color:var(--text-3)">${enArchivo ? 'Aún no hay proveedores en el archivo' : 'Todos los proveedores están al corriente ✅'}</div>`;
-    return;
-  }
-  el.innerHTML = lista.map(p => {
+  el.innerHTML = _proveedores.map(p => {
     const pendientes = (p.pedidos||[]).filter(x=>!x.liquidado);
     const deuda = pendientes.reduce((s,x)=>s+x.monto,0);
     return `
-    <div class="${enArchivo ? 'prov-card-archivo' : ''}" style="background:var(--surface1);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px">
+    <div style="background:var(--surface1);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px">
       <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:10px">
         <div style="flex:1">
           <div style="font-weight:700;font-size:15px">${p.nombre}</div>
@@ -6619,11 +6680,8 @@ function renderProveedores() {
         </div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button type="button" class="prov-ico-btn" onclick="openProveedorModal('${p.id}')" title="Editar proveedor">${_PROV_ICO_EDITAR} Editar</button>
+        <button class="btn btn-ghost btn-sm" onclick="openProveedorModal('${p.id}')">✏️ Editar</button>
         ${deuda > 0 ? `<button class="btn btn-ghost btn-sm" style="color:var(--red);border-color:var(--red)" onclick="openLiquidarModal('${p.id}')">💰 Liquidar</button>` : ''}
-        ${enArchivo
-          ? `<button type="button" class="prov-ico-btn" onclick="restaurarProveedor('${p.id}')" title="Regresar a Por liquidar">${_PROV_ICO_RESTAURAR} Regresar</button>`
-          : (deuda > 0 ? '' : `<button type="button" class="prov-ico-btn" onclick="archivarProveedor('${p.id}')" title="Guardar en Archivo">${_PROV_ICO_GUARDAR} Guardar</button>`)}
       </div>
       ${(p.pedidos||[]).length ? `
       <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px">
@@ -6842,28 +6900,6 @@ function renderMermasStats(historial) {
   }
 }
 
-// ── +/− de piezas en cada artículo (alternativa a F4) ──
-var _ventaNoScroll = false;
-function ventaCant(idx, delta) {
-  const item = state.ticket[idx];
-  if (!item || item._porPrecio || item._recarga) return;
-  const nueva = parseFloat((item.qty + delta).toFixed(3));
-  _ventaNoScroll = true;
-  try {
-    if (nueva <= 0) {
-      state.ticket.splice(idx, 1);
-      if (state._selectedTicketRow === idx) state._selectedTicketRow = null;
-      else if (state._selectedTicketRow > idx) state._selectedTicketRow--;
-    } else {
-      item.qty = nueva;
-    }
-    renderTicket();
-  } finally {
-    _ventaNoScroll = false;
-  }
-  _safeFocus(searchInput);
-}
-
 function removeFromTicket(idx) {
   state.ticket.splice(idx, 1);
   renderTicket();
@@ -6906,8 +6942,7 @@ function renderTicket() {
       <td class="td-code" style="font-size:${_ventasCodeSize}px">${item.code}</td>
       <td class="td-name" style="font-size:${_ventasNameSize}px">${item.name}${pairBadge}${precioBadge}</td>
       <td class="td-um">${item.um}</td>
-      <td class="td-qty" ondblclick="event.stopPropagation()" onclick="event.stopPropagation()">${(item._porPrecio || item._recarga) ? qtyDisplay
-        : `<div class="vq-wrap"><button type="button" class="vq-btn" onclick="ventaCant(${i},-1)" title="Quitar una pieza">−</button><span class="vq-num">${qtyDisplay}</span><button type="button" class="vq-btn" onclick="ventaCant(${i},1)" title="Agregar una pieza">+</button></div>`}</td>
+      <td class="td-qty">${qtyDisplay}</td>
       <td class="td-price">${item._porPrecio ? '—' : '$'+item.price.toFixed(2)}</td>
       <td class="td-subtotal">$${item._porPrecio ? item.price.toFixed(2) : (item.qty * item.price).toFixed(2)}</td>
       <td class="td-del"><button class="del-btn" onclick="event.stopPropagation();removeFromTicket(${i})" title="Eliminar">✕</button></td>
@@ -6916,7 +6951,7 @@ function renderTicket() {
 
   // Scroll automático al último producto agregado
   const lastRow = tbody.querySelector('tr:last-child');
-  if (lastRow && !_ventaNoScroll) {
+  if (lastRow) {
     // Solo se desplaza la lista del ticket; el buscador y el total siempre quedan a la vista
     ['view-ventas', 'pane-a', 'main'].forEach(id => { const el = document.getElementById(id); if (el && el.scrollTop) el.scrollTop = 0; });
     _scrollDentro(document.getElementById('ventas-body'), lastRow, 12);
@@ -7909,35 +7944,23 @@ function renderCajaStats() {
   if (tarjetaCount) tarjetaCount.textContent = `${tarjeta.count} pago${tarjeta.count !== 1 ? 's' : ''}`;
 }
 
-function _cajaMovsHtml(movs, vacio) {
-  if (!movs.length) return `<div style="color:var(--text-3);font-size:13px;padding:10px 0">${vacio}</div>`;
-  const filas = movs.map(m => {
-    const esCorte = String(m.folio || '').startsWith('CORTE-');
-    const esRetiro = m.type === 'retiro';
-    const tipo  = esCorte ? 'Corte' : esRetiro ? 'Retiro' : 'Depósito';
-    const bg    = esCorte ? 'var(--surface2)' : esRetiro ? '#fee2e2' : '#dcfce7';
-    const color = esCorte ? 'var(--text-2)' : esRetiro ? 'var(--red)' : 'var(--green)';
-    const monto = Math.abs(m.total || m.monto || 0);
-    const signo = esCorte ? '' : esRetiro ? '-' : '+';
-    return `<tr>
-      <td class="mono" style="font-size:12px;white-space:nowrap">${_esc2(m.folio || '')}</td>
-      <td><span style="padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;white-space:nowrap;background:${bg};color:${color}">${tipo}</span></td>
-      <td style="font-size:12px;color:var(--text-3);white-space:nowrap">${_esc2(m.time || '')}</td>
-      <td style="font-size:12px;color:var(--text-2)">${_esc2(m.razon || '—')}</td>
-      <td class="mono" style="font-weight:700;text-align:right;white-space:nowrap;color:${color}">${signo}$${monto.toFixed(2)}</td>
-    </tr>`;
-  }).join('');
-  return `<div style="overflow-x:auto"><table class="data-table" style="margin-top:0;width:100%">
-    <thead><tr><th>Folio</th><th>Tipo</th><th>Hora</th><th>Razón</th><th style="text-align:right">Monto</th></tr></thead>
-    <tbody>${filas}</tbody>
-  </table></div>`;
-}
-
 function renderCajaMovimientos() {
   const el = document.getElementById('caja-movimientos');
-  if (!el) return;
   const movs = _todayEntries().filter(h => ['retiro','deposito'].includes(h.type));
-  el.innerHTML = _cajaMovsHtml(movs, 'Sin movimientos de caja hoy');
+  if (!movs.length) { el.innerHTML = '<div style="color:var(--text-3);font-size:13px;padding:10px 0">Sin movimientos de caja hoy</div>'; return; }
+  el.innerHTML = `<table class="data-table" style="margin-top:0">
+    <thead><tr><th>Folio</th><th>Tipo</th><th>Hora</th><th>Razón</th><th>Monto</th></tr></thead>
+    <tbody>
+    ${movs.map(m => `<tr>
+      <td class="mono" style="font-size:12px">${m.folio}</td>
+      <td>${m.type}</td><td>${m.time}</td>
+      <td style="color:var(--text-3)">${m.razon||'—'}</td>
+      <td class="mono" style="color:${m.type==='retiro'?'var(--red)':'var(--green)'}">
+        ${m.type==='retiro'?'-':'+'}\$${Math.abs(m.total).toFixed(2)}
+      </td>
+    </tr>`).join('')}
+    </tbody>
+  </table>`;
 }
 
 // ══════════════════════════════════════════
@@ -8046,6 +8069,7 @@ function _matchProduct(prod, raw) {
   if (prod.code && _normalizeStr(prod.code).includes(q)) return true;
 
   // 2b. Clave (exacta o parcial)
+  if (prod.clave && String(prod.clave).trim().toLowerCase() === raw.trim().toLowerCase()) return true;
   if (prod.clave && _normalizeStr(String(prod.clave)).includes(q)) return true;
 
   // 3. Todas las palabras clave deben aparecer en el nombre
@@ -8122,8 +8146,8 @@ function openProductModal(id) {
   togglePorPrecioHint(p?.porPrecio || false);
   document.getElementById('p-stock').value        = p?.stock      != null ? p.stock : '';
   document.getElementById('p-stock-min').value    = p?.stockMin   != null ? p.stockMin : '';
-  document.getElementById('p-clave').value        = p?.clave      || '';
   document.getElementById('p-lote').value         = p?.lote       || '';
+  document.getElementById('p-clave').value        = p?.clave      || '';
   document.getElementById('p-caducidad').value    = p?.caducidad  || '';
   // Image
   const imgData    = p?.imgData || '';
@@ -8155,12 +8179,6 @@ function calcMargin() {
 }
 
 function saveProduct() {
-  const _clave = document.getElementById('p-clave').value.trim();
-  if (_clave) {
-    const claveDup = state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === _clave.toLowerCase()
-      && String(p.id) !== String(state.editingProductId));
-    if (claveDup) { showToast(`La clave "${_clave}" ya está asignada a "${claveDup.name}"`, 'error'); return; }
-  }
   const code  = document.getElementById('p-code').value.trim();
   const name  = document.getElementById('p-name').value.trim();
   const price = parseFloat(document.getElementById('p-price').value) || 0;
@@ -8182,8 +8200,8 @@ function saveProduct() {
       p.chgUm     = document.getElementById('p-chg-um').checked;
       p.soldByPair= document.getElementById('p-sold-by-pair').checked;
       p.porPrecio = document.getElementById('p-por-precio').checked;
-      p.clave     = document.getElementById('p-clave').value.trim();
       p.lote      = document.getElementById('p-lote').value.trim();
+      p.clave     = document.getElementById('p-clave').value.trim();
       p.caducidad = document.getElementById('p-caducidad').value;
       if (imgData) p.imgData = imgData; else delete p.imgData;
       const sv = document.getElementById('p-stock').value;
@@ -8235,8 +8253,8 @@ function saveProduct() {
       chgUm:    document.getElementById('p-chg-um').checked,
       soldByPair: document.getElementById('p-sold-by-pair').checked,
       porPrecio:  document.getElementById('p-por-precio').checked,
-      clave:    document.getElementById('p-clave').value.trim(),
       lote:     document.getElementById('p-lote').value.trim(),
+      clave:    document.getElementById('p-clave').value.trim(),
       caducidad: document.getElementById('p-caducidad').value,
       imgData:  imgData || '',
       stock:    document.getElementById('p-stock').value !== '' ? parseInt(document.getElementById('p-stock').value)||0 : null,
@@ -8908,13 +8926,14 @@ function _isMobileLayout() {
 
 // _safeFocus: only focuses an element if not on mobile layout (prevents keyboard popup)
 function _safeFocus(el, delay) {
-  if (!el || _isMobileLayout()) return;
+  if (!el) return;
+  if (_isMobileLayout() && (!window._movilKbOn || window._movilKbOn() || /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))) return; // iPhone: nunca foco automático
   if (delay) setTimeout(() => el && el.focus(), delay);
   else el.focus();
 }
 
 function refocusSearch() {
-  if (_isMobileLayout()) return; // never auto-focus on mobile
+  if (_isMobileLayout() && (!window._movilKbOn || window._movilKbOn() || /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1))) return;
   if (state.currentView === 'ventas' && !document.querySelector('.modal-overlay.open')) {
     _safeFocus(searchInput, 50);
   }
@@ -9393,27 +9412,6 @@ function applyButtonSize() {
   if (prev) prev.style.fontSize = _btnSize + 'px';
 }
 
-// ── Tamaño de botones de la ventana de Ventas ──────────────────
-let _ventasBtnSize = 13;
-function _setVentasBtnSize(v) {
-  _ventasBtnSize = Math.max(11, Math.min(34, parseInt(v) || 13));
-  document.documentElement.style.setProperty('--ventas-btn-size', _ventasBtnSize + 'px');
-  const lbl = document.getElementById('size-ventas-btns-label');
-  if (lbl) lbl.textContent = _ventasBtnSize + 'px';
-  const sl = document.getElementById('size-ventas-btns');
-  if (sl && parseInt(sl.value) !== _ventasBtnSize) sl.value = _ventasBtnSize;
-  document.querySelectorAll('#preview-ventas-btns .btn').forEach(b => {
-    const f = b.dataset.cobrar ? _ventasBtnSize * 1.25 : _ventasBtnSize;
-    b.style.fontSize = f + 'px';
-    b.style.padding = `${_ventasBtnSize * .5}px ${_ventasBtnSize * .95}px`;
-    b.style.borderRadius = `${_ventasBtnSize * .6}px`;
-  });
-}
-function applyVentasBtnSize() {
-  const sl = document.getElementById('size-ventas-btns');
-  if (sl) _setVentasBtnSize(sl.value);
-}
-
 // ── Tamaño de filtros/chips ────────────────────────────────────
 let _chipSize = 11;
 function applyChipSize() {
@@ -9452,7 +9450,6 @@ function saveFontSettings() {
     ventasCodeSize:  _ventasCodeSize,
     ventasNameSize:  _ventasNameSize,
     btnSize:         _btnSize,
-    ventasBtnSize:   _ventasBtnSize,
     chipSize:        _chipSize,
     navIconSize:     _navIconSize,
   };
@@ -9485,7 +9482,6 @@ function loadFontSettings() {
     if (s.ventasCodeSize) { _ventasCodeSize = s.ventasCodeSize; const el=document.getElementById('size-item-code'); if(el){el.value=s.ventasCodeSize; document.getElementById('size-item-code-label').textContent=s.ventasCodeSize+'px';} }
     if (s.ventasNameSize) { _ventasNameSize = s.ventasNameSize; const el=document.getElementById('size-item-name'); if(el){el.value=s.ventasNameSize; document.getElementById('size-item-name-label').textContent=s.ventasNameSize+'px';} }
     if (s.btnSize)  { _btnSize  = s.btnSize;  const el=document.getElementById('size-buttons'); if(el){el.value=s.btnSize;  document.getElementById('size-buttons-label').textContent=s.btnSize+'px';} document.documentElement.style.setProperty('--btn-font-size', s.btnSize+'px'); }
-    if (s.ventasBtnSize) _setVentasBtnSize(s.ventasBtnSize);
     if (s.chipSize) { _chipSize = s.chipSize; const el=document.getElementById('size-chips');   if(el){el.value=s.chipSize; document.getElementById('size-chips-label').textContent=s.chipSize+'px';} document.documentElement.style.setProperty('--chip-font-size', s.chipSize+'px'); document.querySelectorAll('.filter-chip').forEach(c=>c.style.fontSize=s.chipSize+'px'); }
     if (s.navIconSize) { _navIconSize = s.navIconSize; const el=document.getElementById('size-nav-icons'); if(el){el.value=s.navIconSize; document.getElementById('size-nav-icons-label').textContent=s.navIconSize+'px';} document.documentElement.style.setProperty('--nav-icon-size', s.navIconSize+'px'); }
     applyFontSizes();
@@ -10492,7 +10488,7 @@ function invHandleInput(val) {
   const q   = raw.toLowerCase();
   if (!q) { document.getElementById('inv-autocomplete').classList.remove('open'); return; }
 
-  const exact = state.products.find(p => p.code === raw);
+  const exact = state.products.find(p => p.code === raw) || state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === raw.toLowerCase());
   if (exact) {
     document.getElementById('inv-scan-input').value = '';
     document.getElementById('inv-autocomplete').classList.remove('open');
@@ -11304,7 +11300,15 @@ function renderCajaMovimientosFecha(entries) {
   const el = document.getElementById('caja-movimientos');
   if (!el) return;
   const movs = entries.filter(h => ['retiro','deposito'].includes(h.type));
-  el.innerHTML = _cajaMovsHtml(movs, 'Sin movimientos este día');
+  if (!movs.length) { el.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--text-3);padding:20px">Sin movimientos este día</td></tr>'; return; }
+  el.innerHTML = movs.map(h => `
+    <tr>
+      <td class="mono" style="font-size:12px">${h.folio||''}</td>
+      <td><span style="padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;background:${h.type==='retiro'?'#fee2e2':'#dcfce7'};color:${h.type==='retiro'?'var(--red)':'var(--green)'}">${h.type==='retiro'?'Retiro':'Depósito'}</span></td>
+      <td style="font-size:12px;color:var(--text-3)">${h.time||''}</td>
+      <td style="font-size:12px">${h.razon||''}</td>
+      <td style="font-weight:700;color:${h.type==='retiro'?'var(--red)':'var(--green)'};text-align:right">${h.type==='retiro'?'-':''}$${Math.abs(h.total||h.monto||0).toFixed(2)}</td>
+    </tr>`).join('');
 }
 
 function _populateFechaSelector() {
@@ -12050,6 +12054,7 @@ function closeBarcodeScanner() {
 // MOBILE LAYOUT TOGGLE
 // ══════════════════════════════════════════
 function toggleMobileLayout() {
+  return; // versión móvil fija
   const isMobile = document.body.classList.toggle('mobile-layout');
   const btn = document.getElementById('mobile-layout-btn');
   if (btn) btn.textContent = isMobile ? '🖥️' : '📱';
@@ -12061,7 +12066,7 @@ function toggleMobileLayout() {
   const isMobileDevice = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   let saved = null;
   try { saved = localStorage.getItem('poscis_mobile_layout'); } catch(e) {}
-  const useMobile = saved !== null ? saved === '1' : isMobileDevice;
+  const useMobile = true; // versión móvil: siempre
   if (useMobile) {
     document.body.classList.add('mobile-layout');
     const btn = document.getElementById('mobile-layout-btn');
@@ -12091,6 +12096,7 @@ _safeFocus(searchInput);
   document.addEventListener('touchend', e => {
     if (document.querySelector('.modal-overlay.open')) return;
     if (document.getElementById('mobile-nav-drawer')?.classList.contains('open')) return;
+    return; // versión móvil: se cambia de ventana con las flechas superiores
     const dx = sx - e.changedTouches[0].clientX;
     const dy = Math.abs(sy - e.changedTouches[0].clientY);
     const dt = Date.now() - st;
@@ -13077,8 +13083,6 @@ closeModal = function (id) {
   }
   // Auditoría: el cursor siempre regresa a su buscador
   if (state.currentView === 'auditoria' && !_anyModalOpen()) _audFocus(60);
-  // Presupuestos: igual que Ventas, el cursor regresa al buscador
-  if (state.currentView === 'presupuestos' && !_anyModalOpen() && typeof _presFocus === 'function') _presFocus(60);
 };
 
 const _navigateToOrig = navigateTo;
@@ -13138,7 +13142,7 @@ _pbInput.addEventListener('input', () => {
     openProductoLibre();
     return;
   }
-  const exact = state.products.find(p => p.code === raw);
+  const exact = state.products.find(p => p.code === raw) || state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === raw.toLowerCase());
   if (exact) { _pbAgregar(exact); return; }
   const res = _ordenarResultados(state.products.filter(p => _matchProduct(p, raw)), raw);
   if (!res.length) { _pbDropdown.classList.remove('open'); return; }
@@ -13169,7 +13173,7 @@ _pbInput.addEventListener('keydown', e => {
   if (open && _pbIdx >= 0 && items[_pbIdx]) { items[_pbIdx].click(); return; }
   const raw = _pbInput.value.trim();
   if (!raw) return;
-  const exact = state.products.find(p => p.code === raw);
+  const exact = state.products.find(p => p.code === raw) || state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === raw.toLowerCase());
   if (exact) { _pbAgregar(exact); return; }
   const res = _ordenarResultados(state.products.filter(p => _matchProduct(p, raw)), raw);
   if (res.length) _pbAgregar(res[0]);
@@ -13326,25 +13330,8 @@ function renderMaizGuardados() {
         ${res.pendientes ? `<span style="color:#ea580c"><b>${res.pendientes}</b> sin completar</span>` : ''}
         <span>Cobrado: <b>${_money2(res.cobrado || 0)}</b></span>
       </div>
-      <button type="button" class="maiz-reg-del" title="Eliminar registro (requiere PIN)"
-        onclick="event.stopPropagation();eliminarMaizRegistro('${_esc2(r.id)}')" ondblclick="event.stopPropagation()">${_MAIZ_ICO_DEL}</button>
     </div>`;
   }).join('');
-}
-const _MAIZ_ICO_DEL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>';
-
-function eliminarMaizRegistro(id) {
-  const r = _maizRegistros.find(x => x.id === (id || _maizRegSel));
-  if (!r) { showToast('Selecciona un registro', 'warn'); return; }
-  const etiqueta = r.fechaDia ? _fechaLabel(r.fechaDia) : (r.fecha || '');
-  requestPin(`PIN para eliminar el registro de maíz del ${etiqueta}`, () => {
-    _maizRegistros = _maizRegistros.filter(x => x.id !== r.id);
-    if (_maizRegSel === r.id) _maizRegSel = null;
-    _syncOp('maiz_registros', r.id, {}, 'delete');
-    closeModal('modal-maiz-registro');
-    renderMaizGuardados();
-    showToast('Registro de maíz eliminado', 'success');
-  });
 }
 function _maizRegSelect(id) {
   _maizRegSel = _maizRegSel === id ? null : id;
@@ -13764,7 +13751,7 @@ function _audElegir(prod) {
 _audInput.addEventListener('input', () => {
   const raw = _audInput.value.trim();
   if (!raw) { _audDropdown.classList.remove('open'); return; }
-  const exact = state.products.find(p => p.code === raw);
+  const exact = state.products.find(p => p.code === raw) || state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === raw.toLowerCase());
   if (exact) { _audElegir(exact); return; }
   const res = _ordenarResultados(state.products.filter(p => _matchProduct(p, raw) && _audPermitido(p)), raw);
   if (!res.length) { _audDropdown.classList.remove('open'); return; }
@@ -13795,7 +13782,7 @@ _audInput.addEventListener('keydown', e => {
   if (open && _audIdx >= 0 && items[_audIdx]) { items[_audIdx].click(); return; }
   const raw = _audInput.value.trim();
   if (!raw) return;
-  const exact = state.products.find(p => p.code === raw);
+  const exact = state.products.find(p => p.code === raw) || state.products.find(p => p.clave && String(p.clave).trim().toLowerCase() === raw.toLowerCase());
   if (exact) { _audElegir(exact); return; }
   const res = _ordenarResultados(state.products.filter(p => _matchProduct(p, raw) && _audPermitido(p)), raw);
   if (res.length) _audElegir(res[0]);
@@ -14956,6 +14943,404 @@ self.addEventListener('fetch', e => {
       }
     }
   }, { passive: true });
+})();
+</script>
+
+<script id="movil-js">
+// ════════════════════════════════════════════════════
+// PISCIS MÓVIL — teclado bajo control, navegación y hojas
+// ════════════════════════════════════════════════════
+(function () {
+  const KB_KEY = 'piscis_movil_teclado';
+  const body = document.body;
+  body.classList.add('mobile-layout');
+
+  // ── 1. TECLADO: inputmode="none" cuando está apagado ──
+  // El campo sigue recibiendo foco (lector de códigos Bluetooth/USB funciona),
+  // pero el teclado del teléfono no aparece hasta que lo enciendes.
+  let kbOn = false;
+  try { kbOn = localStorage.getItem(KB_KEY) === '1'; } catch (e) {}
+  const TYPES = /^(text|search|number|tel|email|password|url|)$/;
+  function eligible(el) {
+    if (!el || !el.tagName) return false;
+    if (el.hasAttribute && el.hasAttribute('data-kb-libre')) return false;
+    if (el.tagName === 'TEXTAREA') return !el.readOnly && !el.disabled;
+    if (el.tagName !== 'INPUT') return false;
+    return TYPES.test((el.getAttribute('type') || '').toLowerCase()) && !el.readOnly && !el.disabled;
+  }
+  function apply(el) {
+    if (!eligible(el)) return;
+    if (!el.hasAttribute('data-m-im')) el.setAttribute('data-m-im', el.getAttribute('inputmode') || '');
+    if (kbOn || el.hasAttribute('data-m-native')) {
+      const o = el.getAttribute('data-m-im');
+      if (o && o !== 'none') el.setAttribute('inputmode', o); else el.removeAttribute('inputmode');
+    } else if (el.getAttribute('inputmode') !== 'none') {
+      el.setAttribute('inputmode', 'none');
+    }
+  }
+  function applyIn(root) {
+    if (!root || root.nodeType !== 1) return;
+    if (root.matches && root.matches('input,textarea')) apply(root);
+    if (root.querySelectorAll) root.querySelectorAll('input,textarea').forEach(apply);
+  }
+  window._movilKbOn = () => kbOn;
+
+  let lastField = null;
+  // En ventanas emergentes (editar producto, cantidades, etc.) tocar un campo abre el teclado
+  // de forma nativa: así funcionan las sugerencias (proveedores, departamentos) y el desplazamiento.
+  document.addEventListener('touchstart', e => {
+    const el = e.target;
+    if (!eligible(el) || kbOn) return;
+    if (!el.closest('.modal-overlay.open, #fb-login')) return;
+    if (!el.hasAttribute('data-m-im')) el.setAttribute('data-m-im', el.getAttribute('inputmode') || '');
+    el.setAttribute('data-m-native', '1');
+    const o = el.getAttribute('data-m-im');
+    if (o && o !== 'none') el.setAttribute('inputmode', o); else el.removeAttribute('inputmode');
+  }, { passive: true, capture: true });
+  document.addEventListener('focusout', e => {
+    const el = e.target;
+    if (el && el.hasAttribute && el.hasAttribute('data-m-native')) {
+      el.removeAttribute('data-m-native');
+      setTimeout(() => apply(el), 0);
+    }
+    setTimeout(paintBtn, 80);
+  }, true);
+  function nativeVisible() {
+    const a = document.activeElement;
+    return eligible(a) && a.getAttribute('inputmode') !== 'none';
+  }
+  document.addEventListener('focusin', e => {
+    if (eligible(e.target)) { lastField = e.target; apply(e.target); body.classList.add('kb-wants'); paintBtn(); }
+  });
+  document.addEventListener('focusout', () => {
+    setTimeout(() => {
+      if (!eligible(document.activeElement)) { body.classList.remove('kb-wants'); window._movilResetPos && window._movilResetPos(); }
+    }, 60);
+  });
+  if (/Android/i.test(navigator.userAgent)) body.classList.add('m-android');
+
+  function visible(el) { return el && document.body.contains(el) && el.offsetParent !== null; }
+  function contextField() {
+    const modal = document.querySelector('.modal-overlay.open');
+    if (modal) {
+      if (visible(lastField) && modal.contains(lastField)) return lastField;
+      return [...modal.querySelectorAll('input,textarea')].find(x => eligible(x) && visible(x)) || null;
+    }
+    if (visible(lastField)) return lastField;
+    const view = document.querySelector('.view.active');
+    if (!view) return null;
+    if (view.id === 'view-ventas') return document.getElementById('search-input');
+    return [...view.querySelectorAll('input,textarea')].find(x => eligible(x) && visible(x)) || null;
+  }
+
+  function paintBtn() {
+    body.classList.toggle('kb-on', kbOn);
+    const nat = !kbOn && nativeVisible();
+    body.classList.toggle('kb-native', nat);
+    const t = document.querySelector('#m-kb-btn .m-kb-txt');
+    if (t) t.textContent = (kbOn || nat) ? 'Ocultar teclado' : 'Teclado';
+    const b = document.getElementById('m-kb-btn');
+    if (b) b.setAttribute('aria-pressed', kbOn ? 'true' : 'false');
+  }
+
+  function setKb(on) {
+    kbOn = !!on;
+    try { localStorage.setItem(KB_KEY, kbOn ? '1' : '0'); } catch (e) {}
+    document.querySelectorAll('input,textarea').forEach(apply);
+    paintBtn();
+    const act = document.activeElement;
+    if (kbOn) {
+      const f = eligible(act) ? act : contextField();
+      if (f) {
+        if (document.activeElement === f) f.blur();
+        apply(f);
+        f.focus({ preventScroll: true });
+        try { if (f.type !== 'number' && f.setSelectionRange) { const n = f.value.length; f.setSelectionRange(n, n); } } catch (e) {}
+      }
+    } else {
+      // Apagar: quitar el foco cierra el teclado en iPhone y Android
+      if (eligible(act)) act.blur();
+      if (document.activeElement && document.activeElement !== document.body && document.activeElement.blur) document.activeElement.blur();
+    }
+    window._movilKbToggledAt = Date.now();
+    resetPos();
+  }
+  window.movilToggleTeclado = () => {
+    if (!kbOn && nativeVisible()) {            // teclado abierto por toque directo → solo ocultarlo
+      document.activeElement.blur();
+      window._movilKbToggledAt = Date.now();
+      resetPos(); paintBtn();
+      return;
+    }
+    setKb(!kbOn);
+  };
+  // iPhone deja la página desplazada al cerrar el teclado: se regresa a su sitio
+  function resetPos() {
+    [0, 120, 350, 700].forEach(ms => setTimeout(() => {
+      if (eligible(document.activeElement)) return;
+      if (window.scrollY || document.documentElement.scrollTop || document.body.scrollTop) {
+        window.scrollTo(0, 0); document.documentElement.scrollTop = 0; document.body.scrollTop = 0;
+      }
+      if (typeof onVV === 'function') onVV();
+      if (!eligible(document.activeElement)) body.classList.remove('kb-up');
+    }, ms));
+  }
+  window._movilResetPos = resetPos;
+
+  // Botón flotante
+  const btn = document.createElement('button');
+  btn.id = 'm-kb-btn';
+  btn.type = 'button';
+  btn.setAttribute('aria-label', 'Mostrar u ocultar el teclado');
+  btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M18 13h.01M9 15.5h6"/><path class="m-kb-slash" d="M3 3l18 18"/></svg><span class="m-kb-txt">Teclado</span>';
+  // Toque robusto: se ejecuta en touchend (gesto del usuario → iOS permite abrir el teclado)
+  // y se evita que el toque quite el foco del campo activo.
+  function wireKbButton(el) {
+    let viaTouch = 0;
+    el.addEventListener('touchend', e => {
+      e.preventDefault(); e.stopPropagation();
+      viaTouch = Date.now();
+      window.movilToggleTeclado();
+    }, { passive: false });
+    el.addEventListener('mousedown', e => e.preventDefault());
+    el.addEventListener('click', e => {
+      e.preventDefault(); e.stopPropagation();
+      if (Date.now() - viaTouch < 700) return; // ya se manejó con el toque
+      window.movilToggleTeclado();
+    });
+  }
+  wireKbButton(btn);
+  document.body.appendChild(btn);
+
+  // Versión integrada junto al buscador de Ventas
+  function makeInline() {
+    const sw = document.querySelector('#pane-a .ventas-header > .search-wrap');
+    if (!sw || document.getElementById('m-kb-inline')) return;
+    const row = document.createElement('div');
+    row.className = 'm-search-row';
+    sw.parentNode.insertBefore(row, sw);
+    row.appendChild(sw);
+    const b2 = document.createElement('button');
+    b2.id = 'm-kb-inline'; b2.type = 'button';
+    b2.setAttribute('aria-label', 'Mostrar u ocultar el teclado');
+    b2.innerHTML = btn.querySelector('svg').outerHTML;
+    wireKbButton(b2);
+    row.appendChild(b2);
+  }
+  window._movilMakeInline = makeInline;
+
+  // Detecta teclado visible para mover el botón encima de él
+  const vv = window.visualViewport;
+  // Altura real de la pantalla visible en cada celular (barras del navegador incluidas)
+  function setAppH() {
+    const h = window.innerHeight || document.documentElement.clientHeight;
+    document.documentElement.style.setProperty('--app-h', h + 'px');
+  }
+  setAppH();
+  window.addEventListener('resize', setAppH);
+  window.addEventListener('orientationchange', () => setTimeout(setAppH, 250));
+  window.addEventListener('pageshow', setAppH);
+  function onVV() {
+    if (!vv) return;
+    const hidden = window.innerHeight - vv.height - vv.offsetTop;
+    const up = hidden > 120 && eligible(document.activeElement);
+    body.classList.toggle('kb-up', up);
+    document.documentElement.style.setProperty('--m-kb-bottom', (Math.max(hidden, 0) + 10) + 'px');
+    document.documentElement.style.setProperty('--m-vvh', vv.height + 'px');
+    document.documentElement.style.setProperty('--m-vv-top', vv.offsetTop + 'px');
+  }
+  if (vv) { vv.addEventListener('resize', onVV); vv.addEventListener('scroll', onVV); }
+
+  // Aplica a todo lo que exista y a lo que se cree después (modales, listas)
+  applyIn(document.body);
+  paintBtn();
+  new MutationObserver(muts => {
+    for (const m of muts) {
+      m.addedNodes.forEach(n => { applyIn(n); stripF(n); });
+      if (m.type === 'characterData') stripF(m.target.parentNode);
+    }
+    body.classList.toggle('modal-open-m', !!document.querySelector('.modal-overlay.open'));
+  }).observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['class'] });
+
+  // ── 2. Quitar etiquetas de teclas F en botones (no hay teclas F en el teléfono) ──
+  const FRX = /(^|\s)F\d{1,2}\s+/g;
+  function stripF(root) {
+    if (!root || !root.nodeType) return;
+    const el = root.nodeType === 3 ? root.parentNode : root;
+    if (!el || !el.closest) return;
+    const scope = el.closest('button') ? [el.closest('button')] : (el.querySelectorAll ? el.querySelectorAll('button') : []);
+    scope.forEach(b => {
+      const w = document.createTreeWalker(b, NodeFilter.SHOW_TEXT);
+      let t; while ((t = w.nextNode())) { const v = t.nodeValue.replace(FRX, '$1'); if (v !== t.nodeValue) t.nodeValue = v; }
+    });
+  }
+
+  function init() {
+    stripF(document.body);
+    makeInline();
+    crearBarra();
+    body.dataset.mview = (typeof state !== 'undefined' && state.currentView) || 'ventas';
+
+    // ── 3. Cobrar abajo, al alcance del pulgar ──
+    const cobrar = document.getElementById('btn-cobrar');
+    const footer = document.querySelector('#pane-a .ventas-footer');
+    if (cobrar && footer && !document.getElementById('m-cobrar-wrap')) {
+      const wrap = document.createElement('span');
+      wrap.id = 'm-cobrar-wrap';
+      wrap.appendChild(cobrar);
+      footer.appendChild(wrap);
+    }
+
+    // ── 4. Botón "Más" con ícono y aviso de alertas ──
+    const more = document.getElementById('mobile-more-btn');
+    if (more) more.innerHTML = '<span class="m-more-ico"><i></i><i></i><i></i><i></i></span><span>Más</span><em class="m-dot"></em>';
+
+    // ── 5. Cajón con TODAS las secciones que no están en la barra ──
+    const BAR = ['ventas', 'historial', 'caja', 'productos'];
+    const drawer = document.getElementById('mobile-nav-drawer');
+    if (drawer) {
+      const items = [...document.querySelectorAll('#sidebar .nav-item[data-view]')].filter(n => !BAR.includes(n.dataset.view));
+      drawer.innerHTML = items.map(n => {
+        const svg = n.querySelector('svg') ? n.querySelector('svg').outerHTML : '';
+        const label = (n.querySelector('.nav-label') || n).textContent.trim();
+        const badge = n.dataset.view === 'alertas' ? '<span class="m-badge" id="m-alerta-badge" style="display:none"></span>' : '';
+        return `<div class="mobile-drawer-item" data-view="${n.dataset.view}" onclick="mobileDrawerNav('${n.dataset.view}')">${svg}<span>${label}</span>${badge}</div>`;
+      }).join('') +
+        '<div class="mobile-drawer-item" onclick="closeMobileDrawer();recargarApp()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg><span>Recargar</span></div>';
+    }
+    const src = document.getElementById('alerta-badge');
+    function syncAlert() {
+      const n = src && src.style.display !== 'none' ? src.textContent.trim() : '';
+      const dot = document.querySelector('#mobile-more-btn .m-dot');
+      const b = document.getElementById('m-alerta-badge');
+      if (dot) { dot.textContent = n; dot.classList.toggle('on', !!n && n !== '0'); }
+      if (b) { b.textContent = n; b.style.display = n && n !== '0' ? '' : 'none'; }
+    }
+    if (src) new MutationObserver(syncAlert).observe(src, { childList: true, characterData: true, subtree: true, attributes: true });
+    syncAlert();
+
+    // ── 6. Historial: detalle como hoja inferior ──
+    const prev = document.querySelector('.historial-preview');
+    const back = document.createElement('div');
+    back.id = 'm-sheet-backdrop';
+    document.body.appendChild(back);
+    if (prev) {
+      const head = document.createElement('div');
+      head.className = 'm-sheet-head';
+      head.innerHTML = '<b>Detalle del registro</b><button type="button" class="m-sheet-close" aria-label="Cerrar">✕</button>';
+      prev.insertBefore(head, prev.firstChild);
+      head.querySelector('button').addEventListener('click', closeSheet);
+      document.getElementById('historial-items')?.addEventListener('click', e => {
+        if (e.target.closest('.historial-entry')) setTimeout(() => { prev.classList.add('m-open'); back.classList.add('open'); body.classList.add('m-sheet-open'); }, 0);
+      });
+      // Si se elimina el registro, cerrar la hoja
+      const acts = document.getElementById('preview-actions');
+      if (acts) new MutationObserver(() => { if (acts.style.display === 'none') closeSheet(); }).observe(acts, { attributes: true, attributeFilter: ['style'] });
+    }
+    function closeSheet() { prev && prev.classList.remove('m-open'); back.classList.remove('open'); body.classList.remove('m-sheet-open'); }
+    back.addEventListener('click', closeSheet);
+    window._movilCloseSheet = closeSheet;
+
+    // ── 7. Ticket: tocar la cantidad para cambiarla ──
+    document.getElementById('ticket-tbody')?.addEventListener('click', e => {
+      const cell = e.target.closest('.td-qty');
+      if (!cell || (typeof _stockMode !== 'undefined' && _stockMode)) return;
+      const tr = cell.closest('tr'); const i = tr ? +tr.dataset.idx : -1;
+      const item = state.ticket[i];
+      if (!item || item._porPrecio || typeof _pedir !== 'function') return;
+      e.stopPropagation();
+      _pedir(`Cantidad — ${item.name}`, item.qty, { tipo: 'number' }).then(v => {
+        if (v === null) return;
+        const val = parseFloat(v);
+        if (isNaN(val) || val <= 0 || !state.ticket[i]) return;
+        state.ticket[i].qty = val;
+        renderTicket();
+      });
+    });
+
+    if (typeof renderTicket === 'function') { try { renderTicket(); } catch (e) {} }
+  }
+
+  // ── 8. Doble toque = doble clic (iOS no siempre lo genera) ──
+  let lastTap = { t: 0, el: null }, nativeDbl = false;
+  document.addEventListener('dblclick', e => { if (e.isTrusted) nativeDbl = true; }, true);
+  document.addEventListener('click', e => {
+    if (!e.isTrusted) return;
+    const now = Date.now(), el = e.target;
+    if (lastTap.el && now - lastTap.t < 320 && (lastTap.el === el || lastTap.el.contains(el) || el.contains(lastTap.el))) {
+      nativeDbl = false;
+      setTimeout(() => {
+        if (!nativeDbl) el.dispatchEvent(new MouseEvent('dblclick', { bubbles: true, cancelable: true, view: window }));
+      }, 0);
+      lastTap = { t: 0, el: null };
+    } else lastTap = { t: now, el };
+  }, true);
+
+  // ── 10. Después de navegar ──
+  // ── 9. Barra superior: ‹ ventana anterior · Título · siguiente › ──
+  const ORDEN = ['ventas','historial','stats','caja','productos','prestamos','stock','inventario','maiz','presupuestos','proveedores','gold','recargas','auditoria','tickets','cierre','ajustes'];
+  function nombreVista(v) {
+    const n = document.querySelector(`#sidebar .nav-item[data-view="${v}"] .nav-label`);
+    return n ? n.textContent.trim() : v;
+  }
+  function iconoVista(v) {
+    const s = document.querySelector(`#sidebar .nav-item[data-view="${v}"] svg`);
+    return s ? s.outerHTML : '';
+  }
+  function vistasDisponibles() {
+    return ORDEN.filter(v => document.getElementById('view-' + v) && document.querySelector(`#sidebar .nav-item[data-view="${v}"]`));
+  }
+  function crearBarra() {
+    const main = document.getElementById('main');
+    if (!main || document.getElementById('m-topbar')) return;
+    const bar = document.createElement('div');
+    bar.id = 'm-topbar';
+    bar.innerHTML = `
+      <button type="button" class="m-tb-arrow" id="m-tb-prev" aria-label="Ventana anterior">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="m-tb-center"><span class="m-tb-ico" id="m-tb-ico"></span><span class="m-tb-title" id="m-tb-title"></span><span class="m-tb-pos" id="m-tb-pos"></span></div>
+      <button type="button" class="m-tb-arrow" id="m-tb-next" aria-label="Ventana siguiente">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>`;
+    main.insertBefore(bar, main.firstChild);
+    const mover = d => {
+      if (Date.now() - (window._movilKbToggledAt || 0) < 800) return;
+      const vs = vistasDisponibles();
+      const cur = (typeof state !== 'undefined' && state.currentView) || 'ventas';
+      let i = vs.indexOf(cur); if (i < 0) i = 0;
+      const sig = vs[(i + d + vs.length) % vs.length];
+      if (sig) navigateTo(sig);
+    };
+    bar.querySelector('#m-tb-prev').addEventListener('click', () => mover(-1));
+    bar.querySelector('#m-tb-next').addEventListener('click', () => mover(1));
+    pintarBarra((typeof state !== 'undefined' && state.currentView) || 'ventas');
+  }
+  function pintarBarra(view) {
+    const vs = vistasDisponibles();
+    const i = vs.indexOf(view);
+    const t = document.getElementById('m-tb-title'); if (!t) return;
+    t.textContent = nombreVista(view);
+    document.getElementById('m-tb-ico').innerHTML = iconoVista(view);
+    document.getElementById('m-tb-pos').textContent = i >= 0 ? `${i + 1}/${vs.length}` : '';
+    const prev = vs[(i - 1 + vs.length) % vs.length], next = vs[(i + 1) % vs.length];
+    document.getElementById('m-tb-prev').setAttribute('aria-label', 'Ir a ' + nombreVista(prev));
+    document.getElementById('m-tb-next').setAttribute('aria-label', 'Ir a ' + nombreVista(next));
+  }
+  window._movilCrearBarra = crearBarra;
+
+  // ── 10. Después de navegar ──
+  window._movilAfterNav = function (view) {
+    body.dataset.mview = view;
+    pintarBarra(view);
+    if (window._movilCloseSheet) window._movilCloseSheet();
+    const BAR = ['ventas', 'historial', 'caja', 'productos'];
+    document.getElementById('mobile-more-btn')?.classList.toggle('active-more', !BAR.includes(view));
+    document.querySelectorAll('#mobile-nav-drawer .mobile-drawer-item').forEach(x => x.classList.toggle('active', x.dataset.view === view));
+    const main = document.querySelector('.view.active'); if (main) main.scrollTop = 0;
+  };
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
 
