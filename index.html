@@ -6,6 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Piscis Móvil">
+<meta name="piscis-build" content="20261111231701">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#07000d">
 <meta name="description" content="Punto de Venta Piscis — POS con sincronización offline">
@@ -2527,6 +2528,8 @@ body.mobile-layout #prod-search { padding-top: 12px; padding-bottom: 12px; borde
 #m-new-prod:active { transform: scale(.94); }
 body.mobile-layout .productos-header-row1 > .btn-primary[onclick^="openProductModal"] { display: none !important; }
 body.mobile-layout .productos-header-row1 > .btn, body.mobile-layout .productos-header-row1 > .count-badge { flex: 0 0 auto; }
+
+body.mobile-layout .m-drawer-ver { grid-column: 1 / -1; order: 99; text-align: center; font-size: 11px; color: var(--text-3); padding: 6px 0 2px; }
 
 /* ═══ Botón de teclado ═══ */
 #m-kb-btn {
@@ -15237,6 +15240,7 @@ self.addEventListener('fetch', e => {
         const badge = n.dataset.view === 'alertas' ? '<span class="m-badge" id="m-alerta-badge" style="display:none"></span>' : '';
         return `<div class="mobile-drawer-item" data-view="${n.dataset.view}" onclick="mobileDrawerNav('${n.dataset.view}')">${svg}<span>${label}</span>${badge}</div>`;
       }).join('') +
+        '<div class="m-drawer-ver" onclick="closeMobileDrawer();buscarActualizacion(true)">Versión ' + fmtBuild(BUILD) + ' · tocar para buscar actualización</div>' +
         '<div class="mobile-drawer-item" onclick="closeMobileDrawer();recargarApp()"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg><span>Recargar</span></div>';
     }
     const src = document.getElementById('alerta-badge');
@@ -15370,6 +15374,36 @@ self.addEventListener('fetch', e => {
     document.querySelectorAll('#mobile-nav-drawer .mobile-drawer-item').forEach(x => x.classList.toggle('active', x.dataset.view === view));
     const main = document.querySelector('.view.active'); if (main) main.scrollTop = 0;
   };
+
+  // ── 11. Auto-actualización: si en GitHub hay una versión más nueva, se carga sola ──
+  const BUILD = (document.querySelector('meta[name="piscis-build"]') || {}).content || '';
+  window.PISCIS_BUILD = BUILD;
+  function fmtBuild(b) {
+    if (!/^\d{14}$/.test(b)) return b || '—';
+    const d = new Date(Date.UTC(+b.slice(0,4), +b.slice(4,6)-1, +b.slice(6,8), +b.slice(8,10), +b.slice(10,12)));
+    return d.toLocaleString('es-MX', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+  }
+  async function buscarActualizacion(manual) {
+    if (!/^https?:/.test(location.protocol) || !navigator.onLine) return;
+    try {
+      const url = location.origin + location.pathname + '?v=' + Date.now();
+      const r = await fetch(url, { cache: 'no-store' });
+      if (!r.ok) return;
+      const html = await r.text();
+      const m = html.match(/<meta name="piscis-build" content="(\d+)"/);
+      if (!m) return;
+      if (m[1] > BUILD) {
+        const key = 'piscis_upd_' + m[1];
+        if (sessionStorage.getItem(key)) { if (manual) showToast && showToast('Hay versión nueva; cierra y abre la app', 'warn'); return; }
+        sessionStorage.setItem(key, '1');
+        if (typeof showToast === 'function') showToast('Actualizando a la versión nueva…', 'success');
+        setTimeout(() => location.replace(location.pathname + '?v=' + m[1]), 900);
+      } else if (manual && typeof showToast === 'function') showToast('Ya tienes la versión más reciente', 'success');
+    } catch (e) {}
+  }
+  window.buscarActualizacion = buscarActualizacion;
+  setTimeout(() => buscarActualizacion(false), 2500);
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') buscarActualizacion(false); });
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
